@@ -1,0 +1,161 @@
+<div class="grid grid-cols-12  gap-y-12  lg:gap-x-12 ">
+
+  <header class="col-span-12 flex items-center gap-2 lg:gap-4">
+    <div class="grow">
+      <h1 class="font-light lg:text-2xl">Contact Details</h1>
+      <div class="flex gap-4">
+        <button class="btn btn-primary" onclick="contact_dialog.showModal()">Edit</button>
+        <button class="btn btn-neutral" onclick="delete_modal.showModal()">Delete</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="card col-span-12 bg-base-100 shadow-sm xl:col-span-6">
+    <div class="card-body">
+      <div class="flex justify-between gap-2">
+        <h2 class="card-title grow">
+          <a >Contact</a>
+        </h2>
+      </div>
+      <div class="pt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold" >Name</span>
+        </label>
+        <input [(ngModel)]="contact.name"
+               disabled
+               class="input input-bordered" />
+      </div>
+      <div class="pt-4 grid grid-cols-2 gap-5">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Email</span>
+          </label>
+          <input  [(ngModel)]="contact.email"
+                  disabled
+                  class="input input-bordered text-center font-mono" />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Phone number</span>
+          </label>
+          <input [(ngModel)]="contact.phone"
+                 disabled
+                 class="input input-bordered text-center font-mono" />
+        </div>
+      </div>
+      <div class="pt-4 grid grid-cols-2 gap-5">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Contact Person</span>
+          </label>
+          <input [(ngModel)]="contact.contactPerson"
+                 disabled
+                 class="input input-bordered text-center font-mono" />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">VAT</span>
+          </label>
+          <input [(ngModel)]="contact.vat"
+                 disabled
+                 class="input input-bordered text-center font-mono" />
+        </div>
+      </div>
+      <div class="pt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold" >Address</span>
+        </label>
+        <textarea disabled class="textarea textarea-bordered textarea-md w-full max-w contact_address"
+                  maxlength="1000"  [(ngModel)]="contact.address"></textarea>
+      </div>
+      <div class="pt-4 grid grid-cols-2 gap-5">
+        <div class="form-control mt-4 gap-4">
+          <label class="flex cursor-pointer gap-4">
+            <input type="checkbox" class="checkbox checkbox-sm" disabled [(ngModel)]="contact.isSupplier"
+                   [checked]="contact.isSupplier"/>
+            <span class="label-text">Supplier</span>
+          </label>
+        </div>
+        <div class="form-control mt-4 gap-4">
+          <label class="flex cursor-pointer gap-4">
+            <input type="checkbox" class="checkbox checkbox-sm" disabled [(ngModel)]="contact.isClient"
+                   [checked]="contact.isClient"/>
+            <span class="label-text">Client</span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="card col-span-12 bg-base-100 shadow-sm xl:col-span-6">
+    <div class="card-body">
+      <div class="text-center text-xl font-bold">
+        Banking
+      </div>
+
+      <div class="pt-0 grid grid-cols-2 gap-5">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Bank name</span>
+          </label>
+          <input [(ngModel)]="contact.bankName"
+                 disabled
+                 class="input input-bordered text-center font-mono" />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Account holder</span>
+          </label>
+          <input [(ngModel)]="contact.accountHolder"
+                 disabled
+                 class="input input-bordered text-center font-mono"  />
+        </div>
+      </div>
+      <div class="pt-4 grid grid-cols-2 gap-5">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Account number/IBAN</span>
+          </label>
+          <input [(ngModel)]="contact.accountNumber"
+                 disabled
+                 class="input input-bordered text-center font-mono" />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold"> SWIFT/BIC Code</span>
+          </label>
+          <input [(ngModel)]="contact.swiftBic"
+                 disabled
+                 class="input input-bordered text-center font-mono" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<dialog id="contact_dialog" class="modal">
+  <div class="modal-box w-11/12 max-w-5xl">
+    <app-persist-contact [contact]="contact" (changed)="contactChange($event)"/>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="delete_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">{{contact.name}}</h3>
+    <p class="py-4">Delete this contact ?</p>
+
+      <form method="dialog" >
+        <div class="flex justify-between gap-4">
+          <button class="btn btn-primary" (click)="delete()">Delete</button>
+          <button class="btn btn-neutral" onclick="delete_modal.close()">Close</button>
+        </div>
+      </form>
+
+  </div>
+</dialog>
+

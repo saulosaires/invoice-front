@@ -1,0 +1,64 @@
+<div class="grid grid-cols-12 grid-rows-[min-content] gap-y-12 p-4 lg:gap-x-12 lg:p-10">
+  <!-- header -->
+  <header class="col-span-12 flex items-center gap-2 lg:gap-4">
+    <label class="btn btn-square btn-ghost drawer-button lg:hidden" for="my-drawer">
+      <mat-icon aria-hidden="false" aria-label="menu icon" fontIcon="menu"/>
+    </label>
+    <div class="grow">
+      <app-breadcrumbs></app-breadcrumbs>
+    </div>
+    <!-- dropdown -->
+    <div class="dropdown dropdown-end z-10">
+      <div class="btn btn-circle btn-ghost" tabindex="0">
+        <div class="indicator">
+          <span class="badge indicator-item badge-error badge-xs"></span>
+          <mat-icon aria-hidden="false" aria-label=" home icon" fontIcon="notifications"></mat-icon>
+        </div>
+      </div>
+      <ul class="menu dropdown-content mt-3 w-80 rounded-box bg-base-100 p-2 shadow-2xl" tabindex="0">
+        <li>
+          <a class="gap-4">
+            <div class="avatar">
+              <div class="w-8 rounded-full">
+                <img src="https://picsum.photos/80/80?1"/>
+              </div>
+            </div>
+            <span>
+										<b>New message</b>
+										<br/>
+										Alice: Hi, did ou get my files?
+							</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- /dropdown -->
+    <!-- dropdown -->
+    <div class="dropdown-end dropdown z-10">
+      <div class="avatar btn btn-circle btn-ghost" tabindex="0">
+        <div class="w-10 rounded-full">
+          <img src="https://picsum.photos/80/80?5"/>
+        </div>
+      </div>
+      <ul
+        class="menu dropdown-content mt-3 w-52 rounded-box bg-base-100 p-2 shadow-2xl"
+        tabindex="0">
+        <li>
+          <a>Profile</a>
+        </li>
+        <li>
+          <a>
+            Inbox
+            <span class="badge badge-success">12</span>
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li><a>Logout</a></li>
+      </ul>
+    </div>
+    <!-- /dropdown -->
+  </header>
+  <!-- /header -->
+  <!-- /content here -->
+</div>

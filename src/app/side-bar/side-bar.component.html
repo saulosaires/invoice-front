@@ -1,0 +1,17 @@
+<!-- sidebar menu -->
+<nav class="flex min-h-screen w-72 flex-col gap-2 overflow-y-auto bg-base-100 px-6 py-10">
+  <div class="mx-4 flex items-center gap-2 font-black">
+    <mat-icon aria-hidden="false" aria-label="person icon" fontIcon="person" />
+    Daisy Corp
+  </div>
+  <ul class="menu">
+    <li  *ngFor="let menu of menu; index as i">
+      <a class="{{menu.active}}"  routerLink="{{menu.href}}" (click)="click(i)">
+        <mat-icon aria-hidden="false" aria-label="Home icon" fontIcon="{{menu.icon}}"  class="h-5 w-5"/>
+        {{menu.label}}
+      </a>
+    </li>
+
+  </ul>
+</nav>
+<!-- /sidebar menu -->

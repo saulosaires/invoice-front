@@ -1,0 +1,11 @@
+<div class="text-xl breadcrumbs">
+  <ul>
+    <li  *ngFor="let breadCrumb of breadCrumbs; index as i"  >
+      <a [routerLink]="[breadCrumb.url]">
+
+      <mat-icon *ngIf="breadCrumb.icon"  aria-hidden="false" aria-label="Home icon" fontIcon="{{breadCrumb.icon}}"  class="w-4 h-4 stroke-current"/>
+        {{breadCrumb.label}}
+      </a>
+    </li>
+  </ul>
+</div>

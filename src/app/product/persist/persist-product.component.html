@@ -1,0 +1,49 @@
+<div class=" gap-y-12 p-4 lg:gap-x-12 lg:p-10 ">
+
+  <div class=" form-control">
+    <label class="label">
+      <span class="label-text font-bold" >Product</span>
+    </label>
+    <input type="text"  placeholder="Product Name" [(ngModel)]="product.name"
+           class="input input-bordered input-primary w-full" />
+  </div>
+  <div class="pt-4 grid grid-cols-3 gap-5">
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text font-bold">Quantity</span>
+      </label>
+      <input type="number" placeholder="1" title="Quantity" [(ngModel)]="product.quantity"
+             class="input input-bordered text-center font-mono  input-primary w-full" />
+    </div>
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text font-bold">Price</span>
+      </label>
+      <input
+        placeholder="100.0" type="text" [(ngModel)]="product.price"
+        title="Price" class="input input-bordered text-center font-mono  input-primary w-full" />
+    </div>
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text font-bold">Tax</span>
+      </label>
+      <input
+        placeholder="21" type="text" [(ngModel)]="product.tax"
+        title="Tax" class="input input-bordered text-center font-mono  input-primary w-full" />
+    </div>
+  </div>
+  <div class="pt-4 form-control">
+    <label class="label">
+      <span class="label-text font-bold" >Description</span>
+    </label>
+    <textarea placeholder="Description" [(ngModel)]="product.description"
+              class="textarea textarea-bordered textarea-md max-w contact_address  textarea-primary w-full"
+              maxlength="1000"></textarea>
+  </div>
+  <div class="form-control">
+    <div class="flex items-end py-4 gap-5">
+      <button class="btn btn-primary grow" (click)="save()">Save</button>
+    </div>
+  </div>
+
+</div>

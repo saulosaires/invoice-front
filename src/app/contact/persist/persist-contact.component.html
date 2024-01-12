@@ -1,0 +1,118 @@
+<div class=" gap-y-12 p-4 lg:gap-x-12 lg:p-10 ">
+
+  <div role="tablist" class="tabs tabs-lifted tabs-lg">
+    <input type="radio" name="contact_tab" role="tab" class="tab" aria-label="Details" checked/>
+    <div role="tabpanel" class="tab-content border-base-300 rounded-box p-6">
+
+      <div class="pt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold" >Name</span>
+        </label>
+        <input type="text"  placeholder="Contact Name" class="input input-bordered input-primary w-full" [(ngModel)]="contact.name"/>
+      </div>
+      <div class="pt-4 grid grid-cols-2 gap-5">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Email</span>
+          </label>
+          <input type="email" placeholder="john@gmail.com" title="Contact email"  [(ngModel)]="contact.email"
+            class="input input-bordered text-center font-mono input-primary w-full" />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Phone number</span>
+          </label>
+          <input
+            placeholder="(+32)498082345" type="text"  [(ngModel)]="contact.phone"
+            title="Phone number" class="input input-bordered text-center font-mono input-primary w-full" />
+        </div>
+      </div>
+      <div class="pt-4 grid grid-cols-2 gap-5">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Contact Person</span>
+          </label>
+          <input type="email" placeholder="john Denver" title="Contact Person"  [(ngModel)]="contact.contactPerson"
+                 class="input input-bordered text-center font-mono input-primary w-full" required/>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">VAT</span>
+          </label>
+          <input
+            placeholder="BE803573575" type="text"  [(ngModel)]="contact.vat"
+            title="VAT" class="input input-bordered text-center font-mono input-primary w-full" required />
+        </div>
+      </div>
+      <div class="pt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold" >Address</span>
+        </label>
+        <textarea placeholder="Address" class="textarea textarea-bordered textarea-md w-full max-w contact_address textarea-primary"
+                  maxlength="1000"  [(ngModel)]="contact.address"></textarea>
+      </div>
+      <div class="pt-4 grid grid-cols-2 gap-5">
+        <div class="form-control mt-4 gap-4">
+          <label class="flex cursor-pointer gap-4">
+            <input type="checkbox" class="checkbox checkbox-primary checkbox-sm"  [(ngModel)]="contact.isSupplier"
+                   [checked]="contact.isSupplier"/>
+            <span class="label-text">Supplier</span>
+          </label>
+        </div>
+        <div class="form-control mt-4 gap-4">
+          <label class="flex cursor-pointer gap-4">
+            <input type="checkbox" class="checkbox checkbox-primary checkbox-sm"  [(ngModel)]="contact.isClient"
+                   [checked]="contact.isClient"/>
+            <span class="label-text">Client</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <input type="radio" name="contact_tab" role="tab" class="tab" aria-label="Banking" />
+    <div role="tabpanel" class="tab-content border-base-300 rounded-box p-6">
+
+      <div class="pt-0 grid grid-cols-2 gap-5">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Bank name</span>
+          </label>
+          <input [(ngModel)]="contact.bankName" type="text" placeholder="Santander" title="Bank name"
+            class="input input-bordered text-center font-mono input-primary w-full" />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Account holder</span>
+          </label>
+          <input [(ngModel)]="contact.accountHolder" placeholder="Name of the account holder" type="text"
+            title="Account holder" class="input input-bordered text-center font-mono input-primary w-full"  />
+        </div>
+      </div>
+      <div class="pt-4 grid grid-cols-2 gap-5">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Account number/IBAN</span>
+          </label>
+          <input [(ngModel)]="contact.accountNumber"
+            type="text" placeholder="Account number/IBAN" title="Account number/IBAN"
+            class="input input-bordered text-center font-mono input-primary w-full" />
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold"> SWIFT/BIC Code</span>
+          </label>
+          <input [(ngModel)]="contact.swiftBic" placeholder=" SWIFT/BIC Code" type="text"
+            title=" SWIFT/BIC Code" class="input input-bordered text-center font-mono input-primary w-full" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-control">
+    <div class="flex items-end py-4 gap-5">
+      <button class="btn btn-primary grow" (click)="save()">Save</button>
+    </div>
+  </div>
+
+</div>

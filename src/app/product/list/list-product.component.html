@@ -1,0 +1,59 @@
+
+<!-- card -->
+<div class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
+  <div class="card-body grow-0">
+    <div class="flex justify-between gap-2">
+      <h2 class="card-title grow">
+        <a class="link-hover link">Products</a>
+      </h2>
+      <button class="btn btn-primary" onclick="product_dialog.showModal()">
+        <mat-icon aria-hidden="false" aria-label="person icon" class="h-5 w-5" fontIcon="add_circle"/>
+        New Product
+      </button>
+    </div>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="table table-zebra">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="hover cursor-pointer" *ngFor="let product of products; index as i"  [routerLink]="[product.id]">
+        <td>
+          <div class="flex items-center gap-4">
+            <div class="avatar">
+              <div class="mask mask-squircle h-10 w-10">
+                <img alt="Avatar Tailwind CSS Component"
+                     src="https://picsum.photos/80/80?1"/>
+              </div>
+            </div>
+            <div>
+              <div class="text-sm font-bold">{{product.name}}</div>
+            </div>
+          </div>
+        </td>
+        <td  class="whitespace-normal">{{product.description}}</td>
+        <td>{{product.quantity}}</td>
+        <td>{{product.price}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<dialog class="modal" id="product_dialog" >
+  <div class="modal-box w-11/12 max-w-5xl">
+    <app-persist-product (changed)="productChanged($event)"/>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
