@@ -4,8 +4,8 @@
     <div class="grow">
       <h1 class="font-light lg:text-2xl">Contact Details</h1>
       <div class="flex gap-4">
-        <button class="btn btn-primary" onclick="contact_dialog.showModal()">Edit</button>
-        <button class="btn btn-neutral" onclick="delete_modal.showModal()">Delete</button>
+        <button class="btn btn-primary font-medium" onclick="contact_dialog.showModal()">Edit</button>
+        <button class="btn btn-neutral font-medium" onclick="delete_modal.showModal()">Delete</button>
       </div>
     </div>
   </header>
@@ -19,7 +19,7 @@
       </div>
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-bold" >Name</span>
+          <span class="label-text font-medium" >Name</span>
         </label>
         <input [(ngModel)]="contact.name"
                disabled
@@ -28,7 +28,7 @@
       <div class="pt-4 grid grid-cols-2 gap-5">
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Email</span>
+            <span class="label-text font-medium">Email</span>
           </label>
           <input  [(ngModel)]="contact.email"
                   disabled
@@ -36,7 +36,7 @@
         </div>
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Phone number</span>
+            <span class="label-text font-medium">Phone number</span>
           </label>
           <input [(ngModel)]="contact.phone"
                  disabled
@@ -46,7 +46,7 @@
       <div class="pt-4 grid grid-cols-2 gap-5">
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Contact Person</span>
+            <span class="label-text font-medium">Contact Person</span>
           </label>
           <input [(ngModel)]="contact.contactPerson"
                  disabled
@@ -54,7 +54,7 @@
         </div>
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">VAT</span>
+            <span class="label-text font-medium">VAT</span>
           </label>
           <input [(ngModel)]="contact.vat"
                  disabled
@@ -63,7 +63,7 @@
       </div>
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-bold" >Address</span>
+          <span class="label-text font-medium" >Address</span>
         </label>
         <textarea disabled class="textarea textarea-bordered textarea-md w-full max-w contact_address"
                   maxlength="1000"  [(ngModel)]="contact.address"></textarea>
@@ -90,14 +90,16 @@
 
   <section class="card col-span-12 bg-base-100 shadow-sm xl:col-span-6">
     <div class="card-body">
-      <div class="text-center text-xl font-bold">
-        Banking
+      <div class="flex justify-between gap-2">
+        <h2 class="card-title grow">
+          <a >Banking</a>
+        </h2>
       </div>
 
       <div class="pt-0 grid grid-cols-2 gap-5">
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Bank name</span>
+            <span class="label-text font-medium">Bank name</span>
           </label>
           <input [(ngModel)]="contact.bankName"
                  disabled
@@ -105,7 +107,7 @@
         </div>
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Account holder</span>
+            <span class="label-text font-medium">Account holder</span>
           </label>
           <input [(ngModel)]="contact.accountHolder"
                  disabled
@@ -115,7 +117,7 @@
       <div class="pt-4 grid grid-cols-2 gap-5">
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Account number/IBAN</span>
+            <span class="label-text font-medium">Account number/IBAN</span>
           </label>
           <input [(ngModel)]="contact.accountNumber"
                  disabled
@@ -123,7 +125,7 @@
         </div>
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold"> SWIFT/BIC Code</span>
+            <span class="label-text font-medium"> SWIFT/BIC Code</span>
           </label>
           <input [(ngModel)]="contact.swiftBic"
                  disabled

@@ -3,7 +3,7 @@
   <input class="drawer-toggle" id="my-drawer" type="checkbox"/>
   <!-- content -->
   <main class="drawer-content">
-    <app-header></app-header>
+    <app-header *ngIf="loggedIn"></app-header>
 
     <!--  content -->
     <div class="gap-y-12 p-4 lg:gap-x-12 lg:p-10">
@@ -11,7 +11,7 @@
     </div>
   </main>
   <!-- /content -->
-  <aside class="drawer-side z-10">
+  <aside class="drawer-side z-10" *ngIf="loggedIn">
     <label class="drawer-overlay" for="my-drawer"></label>
     <app-side-bar/>
   </aside>

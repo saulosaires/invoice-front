@@ -29,10 +29,7 @@ export class BreadcrumbsComponent implements OnInit {
   breadCrumbs: IBreadCrumb[] = []
 
   constructor(private router: Router,
-              private activatedRoute: ActivatedRoute) {
-
-
-  }
+              private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
 

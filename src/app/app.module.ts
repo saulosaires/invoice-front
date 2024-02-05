@@ -21,7 +21,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     ReactiveFormsModule,
     MatAutocompleteModule
   ],
-  providers: [],
+  providers: [    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

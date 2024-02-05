@@ -1,0 +1,68 @@
+<div class="grid grid-cols-12  gap-y-12  lg:gap-x-12 ">
+
+  <section class="card col-span-12 bg-base-100 shadow-sm xl:col-span-6">
+    <div class="card-body">
+      <div class="flex justify-between gap-2">
+        <h2 class="card-title grow">
+          <a >Company</a>
+        </h2>
+        <div class="tooltip" data-tip="Save">
+          <button class="btn btn-primary" (click)="saveCompany()">
+            <mat-icon aria-hidden="false" aria-label="save icon" class="h-5 w-5" fontIcon="save"/>
+          </button>
+        </div>
+      </div>
+      <div class="pt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold" >Name</span>
+        </label>
+        <input  class="input input-bordered" [(ngModel)]="company.name"/>
+      </div>
+      <div class="pt-4 grid grid-cols-2 gap-5">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Email</span>
+          </label>
+          <input class="input input-bordered text-center font-mono" [(ngModel)]="company.email"/>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Phone number</span>
+          </label>
+          <input class="input input-bordered text-center font-mono"  [(ngModel)]="company.phone"/>
+        </div>
+      </div>
+      <div class="pt-4 grid grid-cols-2 gap-5">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">Country</span>
+          </label>
+          <select class="select select-bordered w-full max-w-xs"  [(ngModel)]="company.country.id">
+            <option *ngFor="let country of countries; index as i" [value]="country.id">{{country.name}}</option>
+          </select>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-bold">VAT</span>
+          </label>
+          <input class="input input-bordered text-center font-mono"  [(ngModel)]="company.vat"/>
+        </div>
+      </div>
+      <div class="pt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold" >Address</span>
+        </label>
+        <textarea  class="textarea textarea-bordered textarea-md w-full max-w contact_address"
+                  maxlength="1000" [(ngModel)]="company.address"></textarea>
+      </div>
+
+
+    </div>
+  </section>
+
+  <section class="card col-span-12 bg-base-100 shadow-sm xl:col-span-6">
+    <div class="card-body">
+      <app-list-bank></app-list-bank>
+    </div>
+  </section>
+</div>

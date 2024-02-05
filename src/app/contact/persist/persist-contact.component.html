@@ -6,21 +6,21 @@
 
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-bold" >Name</span>
+          <span class="label-text font-medium" >Name</span>
         </label>
         <input type="text"  placeholder="Contact Name" class="input input-bordered input-primary w-full" [(ngModel)]="contact.name"/>
       </div>
       <div class="pt-4 grid grid-cols-2 gap-5">
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Email</span>
+            <span class="label-text font-medium">Email</span>
           </label>
           <input type="email" placeholder="john@gmail.com" title="Contact email"  [(ngModel)]="contact.email"
             class="input input-bordered text-center font-mono input-primary w-full" />
         </div>
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Phone number</span>
+            <span class="label-text font-medium">Phone number</span>
           </label>
           <input
             placeholder="(+32)498082345" type="text"  [(ngModel)]="contact.phone"
@@ -30,14 +30,14 @@
       <div class="pt-4 grid grid-cols-2 gap-5">
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Contact Person</span>
+            <span class="label-text font-medium">Contact Person</span>
           </label>
           <input type="email" placeholder="john Denver" title="Contact Person"  [(ngModel)]="contact.contactPerson"
                  class="input input-bordered text-center font-mono input-primary w-full" required/>
         </div>
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">VAT</span>
+            <span class="label-text font-medium">VAT</span>
           </label>
           <input
             placeholder="BE803573575" type="text"  [(ngModel)]="contact.vat"
@@ -46,7 +46,7 @@
       </div>
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-bold" >Address</span>
+          <span class="label-text font-medium" >Address</span>
         </label>
         <textarea placeholder="Address" class="textarea textarea-bordered textarea-md w-full max-w contact_address textarea-primary"
                   maxlength="1000"  [(ngModel)]="contact.address"></textarea>

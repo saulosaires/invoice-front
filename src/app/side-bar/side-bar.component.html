@@ -1,9 +1,18 @@
 <!-- sidebar menu -->
 <nav class="flex min-h-screen w-72 flex-col gap-2 overflow-y-auto bg-base-100 px-6 py-10">
-  <div class="mx-4 flex items-center gap-2 font-black">
-    <mat-icon aria-hidden="false" aria-label="person icon" fontIcon="person" />
+  <ul class="menu">
+    <li>
+  <div routerLink="company" class="mx-4 flex items-center gap-2 font-black hover cursor-pointer ">
+    <div class="avatar">
+      <div class="w-8 rounded-full">
+        <img src="https://picsum.photos/80/80?1"/>
+      </div>
+    </div>
     Daisy Corp
   </div>
+    </li>
+  </ul>
+  <div class="divider"></div>
   <ul class="menu">
     <li  *ngFor="let menu of menu; index as i">
       <a class="{{menu.active}}"  routerLink="{{menu.href}}" (click)="click(i)">

@@ -4,8 +4,8 @@
     <div class="grow">
       <h1 class="font-light lg:text-2xl">Product Details</h1>
       <div class="flex gap-4">
-        <button class="btn btn-primary" onclick="product_dialog.showModal()">Edit</button>
-        <button class="btn btn-neutral" onclick="delete_modal.showModal()">Delete</button>
+        <button class="btn btn-primary font-medium" onclick="product_dialog.showModal()">Edit</button>
+        <button class="btn btn-neutral font-medium" onclick="delete_modal.showModal()">Delete</button>
       </div>
     </div>
   </header>
@@ -20,7 +20,7 @@
 
       <div class=" form-control">
         <label class="label">
-          <span class="label-text font-bold" >Product</span>
+          <span class="label-text font-medium" >Product</span>
         </label>
         <input type="text" disabled [(ngModel)]="product.name"
                class="input input-bordered input-primary w-full" />
@@ -28,21 +28,21 @@
       <div class="pt-4 grid grid-cols-3 gap-5">
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Quantity</span>
+            <span class="label-text font-medium">Quantity</span>
           </label>
           <input type="number" disabled [(ngModel)]="product.quantity"
                  class="input input-bordered text-center font-mono  input-primary w-full" />
         </div>
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Price</span>
+            <span class="label-text font-medium">Price</span>
           </label>
           <input type="text" disabled [(ngModel)]="product.price"
             title="Price" class="input input-bordered text-center font-mono  input-primary w-full" />
         </div>
         <div class="form-control">
           <label class="label">
-            <span class="label-text font-bold">Tax</span>
+            <span class="label-text font-medium">Tax</span>
           </label>
           <input type="text" disabled [(ngModel)]="product.tax"
             title="Tax" class="input input-bordered text-center font-mono  input-primary w-full" />
@@ -50,7 +50,7 @@
       </div>
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-bold" >Description</span>
+          <span class="label-text font-medium" >Description</span>
         </label>
         <textarea disabled [(ngModel)]="product.description"
                   class="textarea textarea-bordered textarea-md max-w textarea-primary w-full"

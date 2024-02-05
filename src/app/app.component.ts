@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {Router, RouterOutlet} from '@angular/router';
 import {StorageService} from "./service/storage/storage.service";
 import {MatIconModule} from '@angular/material/icon';
 import {SideBarComponent} from "./side-bar/side-bar.component";
@@ -15,14 +15,18 @@ import {HeaderComponent} from "./header/header.component";
 export class AppComponent implements OnInit{
   title = 'invoice';
 
+  loggedIn: boolean = false;
   loading: boolean = true;
   isDark: boolean | undefined;
 
 
-  constructor(private storageService: StorageService) {
+  constructor(private router: Router,private storageService: StorageService) {
   }
 
   ngOnInit() {
+
+    if(!this.loggedIn)
+      this.router.navigate(['/login']);
 
   }
 
