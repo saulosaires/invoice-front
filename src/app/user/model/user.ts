@@ -6,7 +6,7 @@ export class User {
   phone?: string;
   instantMessaging?: string;
   birthDate?: Date;
-  photoUrl?: string;
+  picture?: string;
   providerId?: string;
   provider?: string;
   accountNonExpired:boolean=true;

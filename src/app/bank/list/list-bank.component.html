@@ -2,23 +2,40 @@
   <h2 class="card-title grow">
     <a>Bank</a>
   </h2>
-  <div class="tooltip" data-tip="Add Bank">
-    <button class="btn btn-primary" onclick="bank_dialog.showModal()">
-      <mat-icon aria-hidden="false" aria-label="save icon" class="h-5 w-5" fontIcon="add_circle"/>
-    </button>
+  <div class="flex gap-4">
+    <div class="tooltip" data-tip="Add Bank">
+      <button class="btn btn-primary" onclick="bank_dialog.showModal()">
+        <mat-icon aria-hidden="false" aria-label="save icon" class="h-5 w-5" fontIcon="add_circle"/>
+        Add
+      </button>
+    </div>
+    <div *ngIf="showDelete()" class="tooltip" data-tip="Delete">
+      <button (click)="delete()" class="btn btn-neutral">
+        <mat-icon aria-hidden="false" aria-label="Delete" class="h-5 w-5" fontIcon="delete"/>
+        Delete
+      </button>
+    </div>
   </div>
 </div>
 
-<table class="table table-zebra">
+<div *ngIf="!itemsBank.length" class="flex  justify-center">
+  <app-no-data></app-no-data>
+</div>
+
+<table *ngIf="itemsBank.length" class="table table-zebra">
   <thead>
   <tr>
+    <th><input (click)="selectAll()" [(ngModel)]="bankSelectAll" class="checkbox" type="checkbox"/></th>
     <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
+    <th>Iban</th>
+    <th>Type</th>
   </tr>
   </thead>
   <tbody>
-  <tr class="hover cursor-pointer" *ngFor="let bank of banks; index as i"  [routerLink]="[bank.id]">
+  <tr *ngFor="let itemBank of itemsBank; index as i" class="hover cursor-pointer">
+    <td class="w-0">
+      <input [(ngModel)]="itemBank.checked" class="checkbox" type="checkbox"/>
+    </td>
     <td>
       <div class="flex items-center gap-4">
         <div class="avatar">
@@ -28,23 +45,23 @@
           </div>
         </div>
         <div>
-          <div class="text-sm font-bold">{{bank.name}}</div>
-          <div class="text-xs opacity-50">{{bank.name}}</div>
+          <div class="text-sm font-bold">{{itemBank.bank.name}}</div>
+          <div class="text-xs opacity-50">{{itemBank.bank.currency.name}}</div>
         </div>
       </div>
     </td>
-    <td>{{bank.name}}</td>
-    <td>{{bank.type}}</td>
+    <td>{{itemBank.bank.accountNumber}}</td>
+    <td>{{itemBank.bank.type}}</td>
   </tr>
 
   </tbody>
 </table>
 
-<dialog class="modal" id="bank_dialog" >
+<dialog class="modal" id="bank_dialog">
   <div class="modal-box w-11/12 max-w-5xl">
     <app-persist-bank (changed)="bankChanged($event)"/>
   </div>
-  <form method="dialog" class="modal-backdrop">
+  <form class="modal-backdrop" method="dialog">
     <button>close</button>
   </form>
 </dialog>

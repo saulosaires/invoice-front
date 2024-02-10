@@ -2,7 +2,7 @@ import {Currency} from "../../currency/currency";
 
 export class Bank {
 
-  id: number | undefined
+  id?: string;
   name: string =""
   accountNumber: string =""
   currency: Currency=new Currency()

@@ -11,6 +11,8 @@ import {ViewProductComponent} from "./product/view/view-product.component";
 import {Product} from "./product/model/product";
 import {CompanyComponent} from "./company/company.component";
 import {LoginComponent} from "./login/login.component";
+import {CompanyService} from "./company/service/company.service";
+import {Company} from "./company/model/company";
 
 export const contactResolver: ResolveFn<Contact> = (route, state) => {
   return inject(ContactsService).findById(route.paramMap.get('id')!);
@@ -20,11 +22,16 @@ export const productResolver: ResolveFn<Product> = (route, state) => {
   return inject(ProductsService).findById(route.paramMap.get('id')!);
 };
 
+export const companyResolver: ResolveFn<Company> = (route, state) => {
+  return inject(CompanyService).findByUser();
+};
+
+
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent, data: {breadcrumb: 'dashboard'}},
-  {path: 'company', component: CompanyComponent, data: {breadcrumb: 'company'}},
+  {path: 'company', resolve: {company: companyResolver},component: CompanyComponent, data: {breadcrumb: 'company'}},
   {
     path: 'product', data: {breadcrumb: 'product'},
     children: [

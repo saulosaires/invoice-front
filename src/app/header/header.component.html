@@ -20,7 +20,7 @@
           <a class="gap-4">
             <div class="avatar">
               <div class="w-8 rounded-full">
-                <img src="https://picsum.photos/80/80?1"/>
+                <img ngSrc="{{user.picture}}" height="80" width="80" alt="{{user.name}}"/>
               </div>
             </div>
             <span>
@@ -38,7 +38,7 @@
     <div class="dropdown-end dropdown z-10">
       <div class="avatar btn btn-circle btn-ghost" tabindex="0">
         <div class="w-10 rounded-full">
-          <img src="https://picsum.photos/80/80?5"/>
+          <img ngSrc="{{user.picture}}" height="80" width="80" alt="{{user.name}}"/>
         </div>
       </div>
       <ul

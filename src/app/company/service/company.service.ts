@@ -16,8 +16,8 @@ export class CompanyService {
   findById(id: string): Observable<Company> {
     return this.http.get<Company>(this.path + id);
   }
-  findByUser(): Observable<Company[]> {
-    return this.http.get<Company[]>(this.path);
+  findByUser(): Observable<Company> {
+    return this.http.get<Company>(this.path);
   }
   save(company: Company): Observable<Company> {
     return this.http.post<Company>(this.path, company);

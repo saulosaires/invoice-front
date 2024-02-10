@@ -5,6 +5,8 @@ import {StorageService} from "./service/storage/storage.service";
 import {MatIconModule} from '@angular/material/icon';
 import {SideBarComponent} from "./side-bar/side-bar.component";
 import {HeaderComponent} from "./header/header.component";
+import {AuthService} from "./auth/service/auth.service";
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -13,20 +15,28 @@ import {HeaderComponent} from "./header/header.component";
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
-  title = 'invoice';
 
+
+  title = 'invoice';
   loggedIn: boolean = false;
   loading: boolean = true;
   isDark: boolean | undefined;
 
 
-  constructor(private router: Router,private storageService: StorageService) {
+  constructor(private router: Router,
+              private authService: AuthService,
+              private storageService: StorageService) {
   }
 
   ngOnInit() {
 
-    if(!this.loggedIn)
+   let  jsonUser=this.storageService.getItem("user");
+    if (!jsonUser) {
+      this.loggedIn=false;
       this.router.navigate(['/login']);
+    }else{
+      this.loggedIn=true;
+    }
 
   }
 

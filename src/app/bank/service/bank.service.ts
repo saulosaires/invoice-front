@@ -22,7 +22,8 @@ export class BanksService {
   save(contact: Bank): Observable<Bank> {
     return this.http.post<Bank>(this.path, contact);
   }
-  delete(id: string): Observable<Bank> {
+
+    delete(id: string | undefined): Observable<Bank> {
     return this.http.delete<Bank>(this.path+ id);
   }
 }
