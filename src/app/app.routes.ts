@@ -13,6 +13,8 @@ import {CompanyComponent} from "./company/company.component";
 import {LoginComponent} from "./login/login.component";
 import {CompanyService} from "./company/service/company.service";
 import {Company} from "./company/model/company";
+import {ListInvoiceComponent} from "./invoice/list/list-invoice.component";
+import {PersistInvoiceComponent} from "./invoice/persist/persist-invoice.component";
 
 export const contactResolver: ResolveFn<Contact> = (route, state) => {
   return inject(ContactsService).findById(route.paramMap.get('id')!);
@@ -56,7 +58,16 @@ export const routes: Routes = [
       }
     ]
   },
-
+  {
+    path: 'invoice', data: {breadcrumb: 'invoice'},
+    children: [
+      {path: '', component: ListInvoiceComponent, data: {breadcrumb: ''}},
+      {
+        path: 'create',
+        component: PersistInvoiceComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({

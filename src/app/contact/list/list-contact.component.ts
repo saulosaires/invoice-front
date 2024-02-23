@@ -5,7 +5,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {ContactsService} from "../service/contact.service";
 import {Contact} from "../model/contact";
 import {NgForOf} from "@angular/common";
-import {ActivatedRoute, Router, RouterLink} from "@angular/router";
+import {RouterLink} from "@angular/router";
 import {SortedDirective} from "../../components/sorted.directive";
 
 @Component({

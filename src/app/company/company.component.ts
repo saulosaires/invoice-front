@@ -31,8 +31,8 @@ export class CompanyComponent implements OnInit {
   countries: Country[] = []
   company: Company = new Company();
 
-  constructor( private activatedRoute: ActivatedRoute,
-               private countryService: CountryService,
+  constructor(private activatedRoute: ActivatedRoute,
+              private countryService: CountryService,
               private _snackBar: MatSnackBar,
               private companyService: CompanyService,
               private banksService: BanksService) {
@@ -41,10 +41,10 @@ export class CompanyComponent implements OnInit {
   ngOnInit(): void {
 
     this.activatedRoute.data.subscribe(({company}) => {
-        this.company = company;
-        if (!this.company.country)
-          this.company.country = new Country();
-      });
+      this.company = company;
+      if (!this.company.country)
+        this.company.country = new Country();
+    });
 
     this.countryService.getAll().subscribe(countries => {
       this.countries = countries;
@@ -60,7 +60,7 @@ export class CompanyComponent implements OnInit {
     });
   }
 
-  showMessage(message:string){
+  showMessage(message: string) {
     this._snackBar.open(message, 'close', {
       duration: 2 * 1000
     });
