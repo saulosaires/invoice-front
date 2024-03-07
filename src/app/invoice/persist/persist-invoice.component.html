@@ -7,7 +7,7 @@
   </ul>
 </div>
 
-<div class="grid grid-cols-12  gap-y-12  lg:gap-x-6 ">
+<div class="grid grid-cols-12  gap-y-12  lg:gap-x-6 mb-7">
 
   <section class="card col-span-12 bg-base-100 shadow-sm xl:col-span-6">
 
@@ -31,15 +31,28 @@
 
     <div class="flex-grow card bg-base-100 shadow-xl">
       <div class="card-body">
-        <h2 class="card-title">Business</h2>
-        <span class="font-bold">{{company.name}}</span>
-        <span class="font-medium">{{company.address}}</span>
-        <span class="font-medium">{{company.email}}</span>
-        <span class="font-medium">{{company.vat}}</span>
+        <div class="flex justify-end">
+          <h2 class="card-title grow">Client</h2>
 
-        <div class="card-actions justify-end">
+          <select (change)="contactChange()" [(ngModel)]="contactId"
+                  class="w-1/2 select select-bordered select-lg max-w-xs">
+            <option disabled selected value="undefined">Select client</option>
+            <option *ngFor="let c of contacts; index as i" [ngValue]="c.id">{{c.name}}</option>
+          </select>
+
+        </div>
+
+
+        <span class="font-bold">{{contact.name}}</span>
+        <span class="font-medium">{{contact.address}}</span>
+        <span class="font-medium">{{contact.email}}</span>
+        <span class="font-medium">{{contact.vat}}</span>
+
+
+        <div *ngIf="contact.id" class="card-actions justify-end	">
           <button class="btn btn-primary btn-sm">Edit</button>
         </div>
+
       </div>
     </div>
 
@@ -47,6 +60,90 @@
 
 </div>
 
+<div class="w-full mb-7">
+
+  <div class="card  w-full bg-base-100 shadow-xl">
+    <div class="card-body">
+      <div class="flex justify-end">
+        <h2 class="card-title grow">Payment</h2>
+        <select (change)="bankChange()" [(ngModel)]="bankId" class="w-1/2 select select-bordered select-lg max-w-xs">
+          <option disabled selected value="undefined">Select a account</option>
+          <option *ngFor="let b of banks; index as i" [ngValue]="b.id">{{b.name}}</option>
+        </select>
+      </div>
+      <div class="flex w-full">
+
+        <div class="mr-4 grid flex-grow place-items-start">
+          <div class="pt-4 grid grid-cols-2 gap-5">
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">Name</span>
+              </label>
+              <span class="font-medium">{{bank.name}}</span>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">accountNumber</span>
+              </label>
+              <span class="font-medium">{{bank.accountNumber}}</span>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">swiftBic</span>
+              </label>
+              <span class="font-medium">{{bank.swiftBic}}</span>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">type</span>
+              </label>
+              <span class="font-medium">{{bank.type}}</span>
+            </div>
+
+           </div>
+        </div>
+        <div class="mr-4 grid flex-grow place-items-end">
+
+          <div class="pt-4 grid grid-cols-3 gap-5">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">Invoice number</span>
+              </label>
+              <input type="text" title="Name" [(ngModel)]="bank.name"
+                     class="input input-bordered text-center font-mono  input-primary w-full" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">Invoice Date</span>
+              </label>
+              <mat-form-field  appearance="outline" class="input input-bordered input-primary w-full" >
+                <input id="abc" matInput [matDatepicker]="picker"  class="text-center font-mono   ">
+                <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text font-bold">Due Date</span>
+              </label>
+              <input type="text" [(ngModel)]="bank.accountNumber"
+                     title="IBAN" class="input input-bordered text-center font-mono  input-primary w-full" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 <br/><br/>
 <br/>
