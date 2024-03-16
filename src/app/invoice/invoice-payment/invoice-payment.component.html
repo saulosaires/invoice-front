@@ -1,0 +1,66 @@
+<div class="card">
+  <div class="card-body">
+    <div class="flex justify-end">
+      <h2 class="card-title grow">Payment</h2>
+      <select (change)="bankChange()" [(ngModel)]="bankId" class="w-1/2 select select-bordered select-lg max-w-xs">
+        <option disabled selected value="undefined">Select a account</option>
+        <option *ngFor="let b of banks; index as i" [ngValue]="b.id">{{b.name}}</option>
+      </select>
+    </div>
+    <div class="flex w-full">
+
+      <div class="mr-4 grid flex-grow place-items-start">
+        <div class="pt-4 grid grid-cols-2 gap-5">
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-bold">Name</span>
+            </label>
+            <input [(ngModel)]="paymentModel.bank.name" class="input input-ghost text-center font-mono  input-primary w-full" disabled title="Name"
+                   type="text"/>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-bold">IBAN</span>
+            </label>
+            <input [(ngModel)]="paymentModel.bank.accountNumber" class="input input-ghost text-center font-mono  input-primary w-full" disabled title="Name"
+                   type="text"/>
+          </div>
+
+        </div>
+      </div>
+      <div class="mr-4 grid flex-grow place-items-end">
+
+        <div class="pt-4 grid grid-cols-3 gap-5">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-bold">Invoice number</span>
+            </label>
+            <input [(ngModel)]="paymentModel.invoiceNumber" (change)="change();"
+                   class="input input-bordered text-center font-mono  input-primary w-full" title="Name"
+                   type="text"/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-bold">Invoice Date</span>
+            </label>
+
+            <input [(ngModel)]="paymentModel.date" (change)="change();"
+                   class="input input-bordered text-center font-mono  input-primary w-full"
+                   title="IBAN" type="date"/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-bold">Due Date</span>
+            </label>
+            <input [(ngModel)]="paymentModel.dueDate" (change)="change();"
+                   class="input input-bordered text-center font-mono  input-primary w-full"
+                   title="IBAN" type="date"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

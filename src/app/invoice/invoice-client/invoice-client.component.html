@@ -1,0 +1,26 @@
+<div class="card">
+
+    <div class="card-body">
+      <div class="flex justify-end">
+        <h2 class="card-title grow">Client</h2>
+
+        <select (change)="contactChange()" [(ngModel)]="contactId"
+                class="w-1/2 select select-bordered select-lg max-w-xs">
+          <option disabled selected value="undefined">Select client</option>
+          <option *ngFor="let c of contacts; index as i" [ngValue]="c.id">{{c.name}}</option>
+        </select>
+
+      </div>
+
+      <span class="font-bold">{{contactSelect.name}}</span>
+      <span class="font-medium">{{contactSelect.address}}</span>
+      <span class="font-medium">{{contactSelect.email}}</span>
+      <span class="font-medium">{{contactSelect.vat}}</span>
+
+      <div *ngIf="contactSelect.id" class="card-actions justify-end	">
+        <button class="btn btn-primary btn-sm">Edit</button>
+      </div>
+
+    </div>
+
+</div>

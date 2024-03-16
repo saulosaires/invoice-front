@@ -15,6 +15,15 @@ import {ContactsService} from "../../contact/service/contact.service";
 import {Contact} from "../../contact/model/contact";
 import {NgForOf, NgIf} from "@angular/common";
 import {Bank} from "../../bank/model/bank";
+import {SortedDirective} from "../../components/sorted.directive";
+import {Invoice} from "../model/invoice";
+import {InvoiceBusinessComponent} from "../invoice-business/invoice-business.component";
+import {InvoiceClientComponent} from "../invoice-client/invoice-client.component";
+import {InvoicePaymentComponent} from "../invoice-payment/invoice-payment.component";
+import {InvoiceItemComponent} from "../invoice-item/invoice-item.component";
+import test from "node:test";
+import {Payment} from "../invoice-payment/model/payment";
+import {PersistProductComponent} from "../../product/persist/persist-product.component";
 
 @Component({
   selector: 'app-persist-invoice',
@@ -22,7 +31,7 @@ import {Bank} from "../../bank/model/bank";
 
   imports: [
     ReactiveFormsModule,
-    MatFormFieldModule, MatNativeDateModule, MatInputModule, MatDatepickerModule, NgForOf, FormsModule, NgIf,
+    MatFormFieldModule, MatNativeDateModule, MatInputModule, MatDatepickerModule, NgForOf, FormsModule, NgIf, SortedDirective, InvoiceBusinessComponent, InvoiceClientComponent, InvoicePaymentComponent, InvoiceItemComponent, PersistProductComponent,
   ],
   templateUrl: './persist-invoice.component.html',
   styleUrl: './persist-invoice.component.scss'
@@ -41,8 +50,10 @@ export class PersistInvoiceComponent implements OnInit {
   contact:Contact=new Contact();
   bank:Bank=new Bank();
 
-  bankId?:string;
-  contactId?:string;
+  invoice:Invoice=new Invoice();
+  abc: any;
+
+
   constructor(private activatedRoute: ActivatedRoute,
               private countryService: CountryService,
               private _snackBar: MatSnackBar,
@@ -52,41 +63,15 @@ export class PersistInvoiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.companyService.findByUser().subscribe(company=>{this.company=company;});
-    this.getContacts();
-    this.getBanks();
   }
 
-  getContacts() {
-    this.contactsService.findByUser(this.page,this.size,this.field,this.sortDirection).subscribe(pageable => {
-      this.contacts=pageable.content;
-    });
+  contactSelected($event:Contact){
+    console.log($event);
+  }
+  paymentChange(payment:Payment) {
+    console.log(payment);
   }
 
-  getBanks() {
-    this.banksService.findByUser().subscribe(banks => {
-      this.banks=banks;
-    });
-  }
 
-  contactChange() {
-
-    if(this.contacts)
-      this.contacts.forEach(c=>{
-        if(c.id==this.contactId){
-          this.contact=c;
-        }
-      });
-  }
-
-  bankChange() {
-
-    this.banks.forEach(b=>{
-      if(b.id==this.bankId){
-        this.bank=b;
-      }
-    });
-
-  }
 }
