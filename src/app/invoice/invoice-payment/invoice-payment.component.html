@@ -38,8 +38,7 @@
               <span class="label-text font-bold">Invoice number</span>
             </label>
             <input [(ngModel)]="paymentModel.invoiceNumber" (change)="change();"
-                   class="input input-bordered text-center font-mono  input-primary w-full" title="Name"
-                   type="text"/>
+                   class="input input-bordered text-center font-mono w-full" title="Name" type="text"/>
           </div>
           <div class="form-control">
             <label class="label">
@@ -47,15 +46,14 @@
             </label>
 
             <input [(ngModel)]="paymentModel.date" (change)="change();"
-                   class="input input-bordered text-center font-mono  input-primary w-full"
-                   title="IBAN" type="date"/>
+                   class="input input-bordered text-center font-mono w-full" title="IBAN" type="date"/>
           </div>
           <div class="form-control">
             <label class="label">
               <span class="label-text font-bold">Due Date</span>
             </label>
             <input [(ngModel)]="paymentModel.dueDate" (change)="change();"
-                   class="input input-bordered text-center font-mono  input-primary w-full"
+                   class="input input-bordered text-center font-mono w-full"
                    title="IBAN" type="date"/>
           </div>
         </div>

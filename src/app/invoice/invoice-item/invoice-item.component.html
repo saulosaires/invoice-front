@@ -14,19 +14,30 @@
         <thead>
         <tr>
           <th>Description</th>
-          <th>Price</th>
+          <th>Price (excl. VAT)</th>
           <th>Tax</th>
           <th>Qtd</th>
+          <th>Discount</th>
           <th>Total</th>
         </tr>
         </thead>
         <tbody>
-        <tr class="hover cursor-pointer" *ngFor="let item of invoiceItems; index as i"  >
-          <td>{{item.product.name}}</td>
-          <td>{{item.product.price}}</td>
+        <tr class="hover cursor-pointer" *ngFor="let item of invoiceItems; index as i" (click)="itemSelect(i)" >
+          <td>
+
+            <div class="flex items-center gap-4">
+              <div>
+                <div class="text-sm font-medium">{{item.product.name}}</div>
+                <div class="text-xs opacity-50">{{item.description}}</div>
+              </div>
+            </div>
+
+          </td>
+          <td>{{item.product.price | currency:'EUR'}}</td>
           <td>{{item.product.tax}}%</td>
           <td>{{item.quantity}}</td>
-          <td>{{item.total}}</td>
+          <td>{{item.discount}}%</td>
+          <td>{{item.total | currency:'EUR'}}</td>
         </tr>
         </tbody>
       </table>
@@ -37,7 +48,7 @@
 
 <dialog class="modal" id="add_item" >
   <div class="modal-box w-11/12 max-w-5xl">
-    <app-persist-product />
+    <app-invoice-add-item [item]="itemSelected"  (itemChanged)="itemChanged($event)"/>
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>

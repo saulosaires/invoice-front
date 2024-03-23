@@ -24,6 +24,7 @@ import {InvoiceItemComponent} from "../invoice-item/invoice-item.component";
 import test from "node:test";
 import {Payment} from "../invoice-payment/model/payment";
 import {PersistProductComponent} from "../../product/persist/persist-product.component";
+import {InvoiceExtraComponent} from "../invoice-extra/invoice-extra.component";
 
 @Component({
   selector: 'app-persist-invoice',
@@ -31,7 +32,7 @@ import {PersistProductComponent} from "../../product/persist/persist-product.com
 
   imports: [
     ReactiveFormsModule,
-    MatFormFieldModule, MatNativeDateModule, MatInputModule, MatDatepickerModule, NgForOf, FormsModule, NgIf, SortedDirective, InvoiceBusinessComponent, InvoiceClientComponent, InvoicePaymentComponent, InvoiceItemComponent, PersistProductComponent,
+    MatFormFieldModule, MatNativeDateModule, MatInputModule, MatDatepickerModule, NgForOf, FormsModule, NgIf, SortedDirective, InvoiceBusinessComponent, InvoiceClientComponent, InvoicePaymentComponent, InvoiceItemComponent, PersistProductComponent, InvoiceExtraComponent,
   ],
   templateUrl: './persist-invoice.component.html',
   styleUrl: './persist-invoice.component.scss'
@@ -72,6 +73,12 @@ export class PersistInvoiceComponent implements OnInit {
   paymentChange(payment:Payment) {
     console.log(payment);
   }
+
+  extraNoteChange(extraNote:string){
+    console.log(extraNote);
+  }
+
+
 
 
 }

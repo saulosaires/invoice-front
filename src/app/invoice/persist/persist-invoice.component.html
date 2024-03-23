@@ -7,7 +7,7 @@
   </ul>
 </div>
 
-<div class="grid grid-cols-12 gap-y-12 lg:gap-x-6">
+<div class="grid grid-cols-12 gap-y-6 lg:gap-x-6">
 
   <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-6">
     <app-invoice-business [company]="company" ></app-invoice-business>
@@ -17,40 +17,16 @@
   </section>
 
   <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
+    <app-invoice-item  ></app-invoice-item>
+  </section>
+
+  <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
     <app-invoice-payment (payment)="paymentChange($event)" ></app-invoice-payment>
   </section>
 
   <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
-    <app-invoice-item  ></app-invoice-item>
+    <app-invoice-extra (extraNote)="extraNoteChange($event)" ></app-invoice-extra>
   </section>
+
 </div>
 
-<br/><br/>
-<br/>
-<br/>
-<br/>
-
-
-<div class="flex w-full">
-  <div class="  flex-grow ">
-
-    <div class="p-14 w-full" style="background-color: rgb(22, 113, 195);">
-      <div class="flex w-full">
-        <div class="mr-4 grid flex-grow bg-base-300 place-items-center">
-
-          <div class="p-4 block w-full cursor-pointer">
-            <div class="flex flex-col h-full text-left hover:bg-white bg-opacity-5 hover:bg-opacity-25 px-1 font-normal rounded-lg min-h-34
-            border-dashed border-transparent hover:border-opacity-25 hover:border-white text-white border">
-              <span class="mb-2 text-base font-semibold">Product</span>
-              <span class="label-text font-light">Product</span>
-            </div>
-          </div>
-        </div>
-        <div class="mr-4 grid flex-grow bg-base-300 place-items-center">content</div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="grid flex-grow card bg-base-300 rounded-box place-items-center">content</div>
-</div>
