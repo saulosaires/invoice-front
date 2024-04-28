@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {Router, RouterOutlet} from '@angular/router';
 import {StorageService} from "./service/storage/storage.service";
 import {MatIconModule} from '@angular/material/icon';
 import {SideBarComponent} from "./side-bar/side-bar.component";
 import {HeaderComponent} from "./header/header.component";
 import {AuthService} from "./auth/service/auth.service";
+import {GlobalConstants} from "./common/global-constants";
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,10 @@ import {AuthService} from "./auth/service/auth.service";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
 
   title = 'invoice';
-  loggedIn: boolean = false;
   loading: boolean = true;
   isDark: boolean | undefined;
 
@@ -26,19 +26,21 @@ export class AppComponent implements OnInit{
   constructor(private router: Router,
               private authService: AuthService,
               private storageService: StorageService) {
+
   }
 
   ngOnInit() {
 
-   let  jsonUser=this.storageService.getItem("user");
+    let jsonUser = this.storageService.getItem("user");
     if (!jsonUser) {
-      this.loggedIn=false;
+      GlobalConstants.loggedIn = false;
       this.router.navigate(['/login']);
-    }else{
-      this.loggedIn=true;
+    } else {
+      GlobalConstants.loggedIn = true;
     }
 
   }
 
 
+  protected readonly GlobalConstants = GlobalConstants;
 }

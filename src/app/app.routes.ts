@@ -64,6 +64,7 @@ export const routes: Routes = [
       {path: '', component: ListInvoiceComponent, data: {breadcrumb: ''}},
       {
         path: 'create',
+        data: {breadcrumb: 'create'},
         component: PersistInvoiceComponent
       }
     ]

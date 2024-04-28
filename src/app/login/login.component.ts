@@ -7,6 +7,7 @@ import {Auth} from "../auth/model/auth";
 import {User} from "../user/model/user";
 import {StorageService} from "../storage/storage.service";
 import {Router} from "@angular/router";
+import {GlobalConstants} from "../common/global-constants";
 
 @Component({
   selector: 'app-login',
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
           let user :User=jwtDecode(response.token);
           this.storageService.saveData("user",JSON.stringify(user))
           this.storageService.saveData("token",response.token)
+          GlobalConstants.loggedIn = true;
           this.router.navigate(['/']);
         }
 

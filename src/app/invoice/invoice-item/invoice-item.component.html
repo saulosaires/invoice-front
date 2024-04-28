@@ -46,9 +46,9 @@
 </div>
 
 
-<dialog class="modal" id="add_item" >
-  <div class="modal-box w-11/12 max-w-5xl">
-    <app-invoice-add-item [item]="itemSelected"  (itemChanged)="itemChanged($event)"/>
+<dialog  class="modal" id="add_item" #add_item>
+  <div  class="modal-box w-11/12 max-w-5xl">
+    <app-invoice-add-item  #invoiceAddItem (itemChanged)="itemChanged($event)"/>
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>

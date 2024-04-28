@@ -4,7 +4,6 @@ import {ProductsService} from "../../product/service/product.service";
 import {Product} from "../../product/model/product";
 import {CurrencyPipe, NgForOf} from "@angular/common";
 import {InvoiceItem} from "../invoice-item/model/invoice.item";
-import {Contact} from "../../contact/model/contact";
 
 @Component({
   selector: 'app-invoice-add-item',
@@ -21,16 +20,15 @@ import {Contact} from "../../contact/model/contact";
 export class InvoiceAddItemComponent implements OnInit{
 
   products: Product[] = [];
+  invoiceItem: InvoiceItem =new InvoiceItem();
 
   @Output() itemChanged = new EventEmitter<InvoiceItem>()
-  @Input() item: InvoiceItem=new InvoiceItem();
 
   constructor(private productsService: ProductsService) {
+    this.getProducts();
   }
 
-
   ngOnInit(): void {
-    this.getProducts();
   }
 
   getProducts() {
@@ -44,8 +42,8 @@ export class InvoiceAddItemComponent implements OnInit{
 
     if(this.products)
       this.products.forEach(product=>{
-        if(product.id==this.item.product.id){
-          this.item.product=product;
+        if(product.id==this.invoiceItem.product.id){
+          this.invoiceItem.product=product;
           this.quantityChange();
         }
       });
@@ -54,17 +52,17 @@ export class InvoiceAddItemComponent implements OnInit{
 
   quantityChange() {
 
-    if( this.item.quantity>0){
-      this.item.total = (this.item.product.price * this.item.quantity);
-      this.item.total += ((this.item.total * this.item.product.tax)/100);
-      this.item.total -= ((this.item.product.price * this.item.discount)/100);
+    if( this.invoiceItem.quantity>0){
+      this.invoiceItem.total = (this.invoiceItem.product.price * this.invoiceItem.quantity);
+      this.invoiceItem.total += ((this.invoiceItem.total * this.invoiceItem.product.tax)/100);
+      this.invoiceItem.total -= ((this.invoiceItem.product.price * this.invoiceItem.discount)/100);
     }
 
   }
 
   save() {
-    this.itemChanged.emit(this.item);
-    this.item=new InvoiceItem();
+    this.itemChanged.emit(this.invoiceItem);
+    this.invoiceItem=new InvoiceItem();
   }
 
 
