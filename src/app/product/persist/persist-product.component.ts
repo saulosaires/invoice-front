@@ -1,7 +1,6 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Product} from "../model/product";
 import {FormsModule} from "@angular/forms";
-import {ContactsService} from "../../contact/service/contact.service";
 import {ProductsService} from "../service/product.service";
 
 @Component({
@@ -17,10 +16,14 @@ export class PersistProductComponent {
 
   @Output() changed = new EventEmitter<Product>()
 
-  @Input() product: Product = new Product();
+  product: Product = new Product();
 
   constructor(private service: ProductsService) {
+  }
 
+  setProduct(product: Product) {
+    this.product = new Product();
+    this.product.init(product);
   }
 
   save() {

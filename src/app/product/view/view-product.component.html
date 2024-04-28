@@ -4,7 +4,7 @@
     <div class="grow">
       <h1 class="font-light lg:text-2xl">Product Details</h1>
       <div class="flex gap-4">
-        <button class="btn btn-primary font-medium" onclick="product_dialog.showModal()">Edit</button>
+        <button class="btn btn-primary font-medium"  (click)="editProduct();" >Edit</button>
         <button class="btn btn-neutral font-medium" onclick="delete_modal.showModal()">Delete</button>
       </div>
     </div>
@@ -44,7 +44,7 @@
           <label class="label">
             <span class="label-text font-medium">Tax</span>
           </label>
-          <input type="text" disabled [(ngModel)]="product.tax"
+          <input type="number" disabled [(ngModel)]="product.tax"
             title="Tax" class="input input-bordered text-center font-mono  input-primary w-full" />
         </div>
       </div>
@@ -60,12 +60,11 @@
     </div>
   </section>
 
-
 </div>
 
-<dialog id="product_dialog" class="modal">
+<dialog #product_dialog id="product_dialog" class="modal">
   <div class="modal-box w-11/12 max-w-5xl">
-    <app-persist-product [product]="product" (changed)="productChanged($event)"/>
+    <app-persist-product #persistProduct (changed)="productChanged($event)"/>
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>

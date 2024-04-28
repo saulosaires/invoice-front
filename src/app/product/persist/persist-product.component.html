@@ -20,7 +20,7 @@
         <span class="label-text font-medium">Price</span>
       </label>
       <input
-        placeholder="100.0" type="text" [(ngModel)]="product.price"
+        placeholder="100.0" type="number" [(ngModel)]="product.price"
         title="Price" class="input input-bordered text-center font-mono w-full" />
     </div>
     <div class="form-control">
@@ -28,8 +28,9 @@
         <span class="label-text font-medium">Tax(%)</span>
       </label>
       <input
-        placeholder="21" type="text" [(ngModel)]="product.tax"
+        placeholder="21" type="number" [(ngModel)]="product.tax"
         title="Tax" class="input input-bordered text-center font-mono w-full" />
+
     </div>
   </div>
   <div class="pt-4 form-control">
