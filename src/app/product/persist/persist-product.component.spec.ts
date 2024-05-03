@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PersistProductComponent } from './persist-product.component';
+import {PersistProductComponent} from './persist-product.component';
 
 describe('PersistProductComponent', () => {
   let component: PersistProductComponent;
@@ -10,8 +10,8 @@ describe('PersistProductComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PersistProductComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(PersistProductComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

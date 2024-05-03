@@ -27,17 +27,17 @@ export class PersistBankComponent implements OnInit {
 
   currencies: Currency[] = [];
 
-  types:string[]= ["Personal","Business"];
+  types: string[] = ["Personal", "Business"];
 
-  constructor(private banksService: BanksService,private currencyService: CurrencyService) {
+  constructor(private banksService: BanksService, private currencyService: CurrencyService) {
   }
 
   ngOnInit(): void {
 
-    this.bank.type=this.types[0];
+    this.bank.type = this.types[0];
     this.currencyService.getAll().subscribe(currency => {
       this.currencies = currency;
-      this.bank.currency=currency[0];
+      this.bank.currency = currency[0];
     })
 
 

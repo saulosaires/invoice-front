@@ -10,6 +10,6 @@ import {Company} from "../../company/model/company";
 })
 export class InvoiceBusinessComponent {
 
-  @Input() company: Company=new Company();
+  @Input() company: Company = new Company();
 
 }

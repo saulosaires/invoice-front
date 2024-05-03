@@ -9,22 +9,23 @@
 <div class="grid grid-cols-12 gap-y-6 lg:gap-x-6">
 
   <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-6">
-    <app-invoice-business [company]="company" ></app-invoice-business>
+    <app-invoice-business [company]="company"></app-invoice-business>
   </section>
   <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-6">
-    <app-invoice-client (contact)="contactSelected($event)" class="col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-6"></app-invoice-client>
+    <app-invoice-client (contact)="contactSelected($event)"
+                        class="col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-6"></app-invoice-client>
   </section>
 
   <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
-    <app-invoice-item  ></app-invoice-item>
+    <app-invoice-item></app-invoice-item>
   </section>
 
   <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
-    <app-invoice-payment (payment)="paymentChange($event)" ></app-invoice-payment>
+    <app-invoice-payment (payment)="paymentChange($event)"></app-invoice-payment>
   </section>
 
   <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
-    <app-invoice-extra (extraNote)="extraNoteChange($event)" ></app-invoice-extra>
+    <app-invoice-extra (extraNote)="extraNoteChange($event)"></app-invoice-extra>
   </section>
 
 </div>

@@ -16,14 +16,16 @@ export class BanksService {
   findById(id: string): Observable<Bank> {
     return this.http.get<Bank>(this.path + id);
   }
+
   findByUser(): Observable<Bank[]> {
     return this.http.get<Bank[]>(this.path);
   }
+
   save(contact: Bank): Observable<Bank> {
     return this.http.post<Bank>(this.path, contact);
   }
 
-    delete(id: string | undefined): Observable<Bank> {
-    return this.http.delete<Bank>(this.path+ id);
+  delete(id: string | undefined): Observable<Bank> {
+    return this.http.delete<Bank>(this.path + id);
   }
 }

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListBankComponent } from './list-bank.component';
+import {ListBankComponent} from './list-bank.component';
 
 describe('ListBankComponent', () => {
   let component: ListBankComponent;
@@ -10,8 +10,8 @@ describe('ListBankComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ListBankComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(ListBankComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

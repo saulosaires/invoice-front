@@ -9,6 +9,7 @@ export class StorageService {
   constructor(@Inject(DOCUMENT) private document: Document) {
     const localStorage = document.defaultView?.localStorage;
   }
+
   public setItem(key: string, value: any) {
     localStorage.setItem(key, value);
   }
@@ -16,6 +17,7 @@ export class StorageService {
   public getItem(key: string) {
     return localStorage.getItem(key)
   }
+
   public removeItem(key: string) {
     localStorage.removeItem(key);
   }

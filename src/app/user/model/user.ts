@@ -9,10 +9,10 @@ export class User {
   picture?: string;
   providerId?: string;
   provider?: string;
-  accountNonExpired:boolean=true;
-  accountNonLocked:boolean=true;
-  credentialsNonExpired:boolean=true;
-  enabled:boolean=true;
-  emailVerified:boolean=false;
+  accountNonExpired: boolean = true;
+  accountNonLocked: boolean = true;
+  credentialsNonExpired: boolean = true;
+  enabled: boolean = true;
+  emailVerified: boolean = false;
 }
 

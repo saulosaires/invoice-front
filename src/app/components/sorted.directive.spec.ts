@@ -1,4 +1,4 @@
-import { SortedDirective } from './sorted.directive';
+import {SortedDirective} from './sorted.directive';
 
 describe('SortedDirective', () => {
   it('should create an instance', () => {

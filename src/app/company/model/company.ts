@@ -7,9 +7,9 @@ export class Company {
   name?: string;
   email?: string;
   phone?: string;
-  country: Country=new Country();
+  country: Country = new Country();
   address?: string;
   vat?: string;
-  banks:Bank[]=[];
+  banks: Bank[] = [];
 
 }

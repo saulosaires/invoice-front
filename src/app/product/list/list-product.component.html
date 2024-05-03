@@ -1,4 +1,3 @@
-
 <!-- card -->
 <div class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
   <div class="card-body grow-0">
@@ -23,24 +22,24 @@
         </tr>
         </thead>
         <tbody>
-          <tr class="hover cursor-pointer" *ngFor="let product of products; index as i"  [routerLink]="[product.id]">
-            <td>
-              <div class="flex items-center gap-4">
-                <div class="avatar">
-                  <div class="mask mask-squircle h-10 w-10">
-                    <img alt="Avatar Tailwind CSS Component"
-                         src="https://picsum.photos/80/80?1"/>
-                  </div>
-                </div>
-                <div>
-                  <div class="text-sm font-medium">{{product.name}}</div>
+        <tr class="hover cursor-pointer" *ngFor="let product of products; index as i" [routerLink]="[product.id]">
+          <td>
+            <div class="flex items-center gap-4">
+              <div class="avatar">
+                <div class="mask mask-squircle h-10 w-10">
+                  <img alt="Avatar Tailwind CSS Component"
+                       src="https://picsum.photos/80/80?1"/>
                 </div>
               </div>
-            </td>
-            <td  class="whitespace-normal">{{product.description}}</td>
-            <td>{{product.quantity}}</td>
-            <td>{{product.price}}</td>
-          </tr>
+              <div>
+                <div class="text-sm font-medium">{{ product.name }}</div>
+              </div>
+            </div>
+          </td>
+          <td class="whitespace-normal">{{ product.description }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.price }}</td>
+        </tr>
 
         </tbody>
       </table>
@@ -49,7 +48,7 @@
 </div>
 
 
-<dialog class="modal" id="product_dialog" >
+<dialog class="modal" id="product_dialog">
   <div class="modal-box w-11/12 max-w-5xl">
     <app-persist-product (changed)="productChanged($event)"/>
   </div>

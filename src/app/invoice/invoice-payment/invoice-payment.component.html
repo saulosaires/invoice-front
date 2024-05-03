@@ -4,7 +4,7 @@
       <h2 class="card-title grow">Payment</h2>
       <select (change)="bankChange()" [(ngModel)]="bankId" class="w-1/2 select select-bordered select-lg max-w-xs">
         <option disabled selected value="undefined">Select a account</option>
-        <option *ngFor="let b of banks; index as i" [ngValue]="b.id">{{b.name}}</option>
+        <option *ngFor="let b of banks; index as i" [ngValue]="b.id">{{ b.name }}</option>
       </select>
     </div>
     <div class="flex w-full">
@@ -16,7 +16,8 @@
             <label class="label">
               <span class="label-text font-bold">Name</span>
             </label>
-            <input [(ngModel)]="paymentModel.bank.name" class="input input-ghost text-center font-mono  input-primary w-full" disabled title="Name"
+            <input [(ngModel)]="paymentModel.bank.name"
+                   class="input input-ghost text-center font-mono  input-primary w-full" disabled title="Name"
                    type="text"/>
           </div>
 
@@ -24,7 +25,8 @@
             <label class="label">
               <span class="label-text font-bold">IBAN</span>
             </label>
-            <input [(ngModel)]="paymentModel.bank.accountNumber" class="input input-ghost text-center font-mono  input-primary w-full" disabled title="Name"
+            <input [(ngModel)]="paymentModel.bank.accountNumber"
+                   class="input input-ghost text-center font-mono  input-primary w-full" disabled title="Name"
                    type="text"/>
           </div>
 

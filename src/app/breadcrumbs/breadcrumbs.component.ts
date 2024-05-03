@@ -29,17 +29,18 @@ export class BreadcrumbsComponent implements OnInit {
   breadCrumbs: IBreadCrumb[] = []
 
   constructor(private router: Router,
-              private activatedRoute: ActivatedRoute) {}
+              private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
 
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
-        this.breadCrumbs=[];
-        this.breadCrumbs.push({label:'Home', url:'',icon:'home'});
+        this.breadCrumbs = [];
+        this.breadCrumbs.push({label: 'Home', url: '', icon: 'home'});
 
-        this.createBreadcrumbs(this.activatedRoute.root).forEach(b=>{
+        this.createBreadcrumbs(this.activatedRoute.root).forEach(b => {
           this.breadCrumbs.push(b)
         })
 
@@ -64,27 +65,27 @@ export class BreadcrumbsComponent implements OnInit {
 
       let label = child.snapshot.data[BreadcrumbsComponent.ROUTE_DATA_BREADCRUMB];
       const icon = child.snapshot.data[BreadcrumbsComponent.ROUTE_DATA_BREADCRUMB_ICON];
-      const type = child.snapshot.data[BreadcrumbsComponent.ROUTE_DATA_BREADCRUMB_TYPE] ;
+      const type = child.snapshot.data[BreadcrumbsComponent.ROUTE_DATA_BREADCRUMB_TYPE];
 
-      if (label){
-        if(label=='view')
-            label=this.translateLabel(type,child.snapshot.data)
+      if (label) {
+        if (label == 'view')
+          label = this.translateLabel(type, child.snapshot.data)
 
-        breadcrumbs.push({label, url,icon});
+        breadcrumbs.push({label, url, icon});
       }
 
-      return this.createBreadcrumbs(child, url, breadcrumbs) ;
+      return this.createBreadcrumbs(child, url, breadcrumbs);
     }
   }
 
   private translateLabel(type: string, data: Data) {
 
-    if(type=='contact'){
+    if (type == 'contact') {
       let contact = data[type]
       return contact.name;
     }
 
-    if(type=='product'){
+    if (type == 'product') {
       let product = data[type]
       return product.name;
     }

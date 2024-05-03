@@ -23,7 +23,7 @@ export class SortedDirective implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
 
-    if(changes['order']){
+    if (changes['order']) {
       this.addOrderSvg();
     }
   }
@@ -36,8 +36,8 @@ export class SortedDirective implements OnInit, OnChanges {
 
     const childElements = this.elementRef.nativeElement.childNodes;
     for (let child of childElements) {
-      if(child.nodeName=='svg')
-      this.render.removeChild(this.elementRef.nativeElement, child);
+      if (child.nodeName == 'svg')
+        this.render.removeChild(this.elementRef.nativeElement, child);
     }
 
     const svg = this.render.createElement('svg', 'svg');

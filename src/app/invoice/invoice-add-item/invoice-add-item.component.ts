@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ProductsService} from "../../product/service/product.service";
 import {Product} from "../../product/model/product";
@@ -17,10 +17,10 @@ import {InvoiceItem} from "../invoice-item/model/invoice.item";
   templateUrl: './invoice-add-item.component.html',
   styleUrl: './invoice-add-item.component.scss'
 })
-export class InvoiceAddItemComponent implements OnInit{
+export class InvoiceAddItemComponent implements OnInit {
 
   products: Product[] = [];
-  invoiceItem: InvoiceItem =new InvoiceItem();
+  invoiceItem: InvoiceItem = new InvoiceItem();
 
   @Output() itemChanged = new EventEmitter<InvoiceItem>()
 
@@ -40,10 +40,10 @@ export class InvoiceAddItemComponent implements OnInit{
 
   productChange() {
 
-    if(this.products)
-      this.products.forEach(product=>{
-        if(product.id==this.invoiceItem.product.id){
-          this.invoiceItem.product=product;
+    if (this.products)
+      this.products.forEach(product => {
+        if (product.id == this.invoiceItem.product.id) {
+          this.invoiceItem.product = product;
           this.quantityChange();
         }
       });
@@ -52,17 +52,17 @@ export class InvoiceAddItemComponent implements OnInit{
 
   quantityChange() {
 
-    if( this.invoiceItem.quantity>0){
+    if (this.invoiceItem.quantity > 0) {
       this.invoiceItem.total = (this.invoiceItem.product.price * this.invoiceItem.quantity);
-      this.invoiceItem.total += ((this.invoiceItem.total * this.invoiceItem.product.tax)/100);
-      this.invoiceItem.total -= ((this.invoiceItem.product.price * this.invoiceItem.discount)/100);
+      this.invoiceItem.total += ((this.invoiceItem.total * this.invoiceItem.product.tax) / 100);
+      this.invoiceItem.total -= ((this.invoiceItem.product.price * this.invoiceItem.discount) / 100);
     }
 
   }
 
   save() {
     this.itemChanged.emit(this.invoiceItem);
-    this.invoiceItem=new InvoiceItem();
+    this.invoiceItem = new InvoiceItem();
   }
 
 

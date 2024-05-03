@@ -14,25 +14,25 @@
     <div class="card-body">
       <div class="flex justify-between gap-2">
         <h2 class="card-title grow">
-          <a >Contact</a>
+          <a>Contact</a>
         </h2>
       </div>
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-medium" >Name</span>
+          <span class="label-text font-medium">Name</span>
         </label>
         <input [(ngModel)]="contact.name"
                disabled
-               class="input input-bordered" />
+               class="input input-bordered"/>
       </div>
       <div class="pt-4 grid grid-cols-2 gap-5">
         <div class="form-control">
           <label class="label">
             <span class="label-text font-medium">Email</span>
           </label>
-          <input  [(ngModel)]="contact.email"
-                  disabled
-                  class="input input-bordered text-center font-mono" />
+          <input [(ngModel)]="contact.email"
+                 disabled
+                 class="input input-bordered text-center font-mono"/>
         </div>
         <div class="form-control">
           <label class="label">
@@ -40,7 +40,7 @@
           </label>
           <input [(ngModel)]="contact.phone"
                  disabled
-                 class="input input-bordered text-center font-mono" />
+                 class="input input-bordered text-center font-mono"/>
         </div>
       </div>
       <div class="pt-4 grid grid-cols-2 gap-5">
@@ -50,7 +50,7 @@
           </label>
           <input [(ngModel)]="contact.contactPerson"
                  disabled
-                 class="input input-bordered text-center font-mono" />
+                 class="input input-bordered text-center font-mono"/>
         </div>
         <div class="form-control">
           <label class="label">
@@ -58,15 +58,15 @@
           </label>
           <input [(ngModel)]="contact.vat"
                  disabled
-                 class="input input-bordered text-center font-mono" />
+                 class="input input-bordered text-center font-mono"/>
         </div>
       </div>
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-medium" >Address</span>
+          <span class="label-text font-medium">Address</span>
         </label>
         <textarea disabled class="textarea textarea-bordered textarea-md w-full max-w contact_address"
-                  maxlength="1000"  [(ngModel)]="contact.address"></textarea>
+                  maxlength="1000" [(ngModel)]="contact.address"></textarea>
       </div>
       <div class="pt-4 grid grid-cols-2 gap-5">
         <div class="form-control mt-4 gap-4">
@@ -92,7 +92,7 @@
     <div class="card-body">
       <div class="flex justify-between gap-2">
         <h2 class="card-title grow">
-          <a >Banking</a>
+          <a>Banking</a>
         </h2>
       </div>
 
@@ -103,7 +103,7 @@
           </label>
           <input [(ngModel)]="contact.bankName"
                  disabled
-                 class="input input-bordered text-center font-mono" />
+                 class="input input-bordered text-center font-mono"/>
         </div>
         <div class="form-control">
           <label class="label">
@@ -111,7 +111,7 @@
           </label>
           <input [(ngModel)]="contact.accountHolder"
                  disabled
-                 class="input input-bordered text-center font-mono"  />
+                 class="input input-bordered text-center font-mono"/>
         </div>
       </div>
       <div class="pt-4 grid grid-cols-2 gap-5">
@@ -121,7 +121,7 @@
           </label>
           <input [(ngModel)]="contact.accountNumber"
                  disabled
-                 class="input input-bordered text-center font-mono" />
+                 class="input input-bordered text-center font-mono"/>
         </div>
         <div class="form-control">
           <label class="label">
@@ -129,7 +129,7 @@
           </label>
           <input [(ngModel)]="contact.swiftBic"
                  disabled
-                 class="input input-bordered text-center font-mono" />
+                 class="input input-bordered text-center font-mono"/>
         </div>
       </div>
 
@@ -148,15 +148,15 @@
 
 <dialog id="delete_modal" class="modal">
   <div class="modal-box">
-    <h3 class="font-bold text-lg">{{contact.name}}</h3>
+    <h3 class="font-bold text-lg">{{ contact.name }}</h3>
     <p class="py-4">Delete this contact ?</p>
 
-      <form method="dialog" >
-        <div class="flex justify-between gap-4">
-          <button class="btn btn-primary" (click)="delete()">Delete</button>
-          <button class="btn btn-neutral" onclick="delete_modal.close()">Close</button>
-        </div>
-      </form>
+    <form method="dialog">
+      <div class="flex justify-between gap-4">
+        <button class="btn btn-primary" (click)="delete()">Delete</button>
+        <button class="btn btn-neutral" onclick="delete_modal.close()">Close</button>
+      </div>
+    </form>
 
   </div>
 </dialog>

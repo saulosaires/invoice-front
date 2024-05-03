@@ -10,18 +10,22 @@ export class ProductsService {
 
   private path = '/api/products/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   findById(id: string): Observable<Product> {
     return this.http.get<Product>(this.path + id);
   }
+
   findByUser(): Observable<Product[]> {
     return this.http.get<Product[]>(this.path);
   }
+
   save(product: Product): Observable<Product> {
     return this.http.post<Product>(this.path, product);
   }
+
   delete(id: string): Observable<Product> {
-    return this.http.delete<Product>(this.path+ id);
+    return this.http.delete<Product>(this.path + id);
   }
 }

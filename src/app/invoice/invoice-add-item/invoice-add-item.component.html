@@ -2,12 +2,12 @@
   <h1 class="card-title grow">Add a new item</h1>
   <div class=" form-control">
     <label class="label">
-      <span class="label-text font-medium" >Product</span>
+      <span class="label-text font-medium">Product</span>
     </label>
     <select (change)="productChange()" [(ngModel)]="invoiceItem.product.id"
-            class="select w-full ">
+            class="select w-full select-lg">
       <option disabled selected value="undefined">Select Product</option>
-      <option *ngFor="let product of products; index as i" [ngValue]="product.id">{{product.name}}</option>
+      <option *ngFor="let product of products; index as i" [ngValue]="product.id">{{ product.name }}</option>
     </select>
   </div>
   <div class="pt-4 grid grid-cols-2 gap-5">
@@ -16,23 +16,23 @@
         <span class="label-text font-medium">Price</span>
       </label>
       <input disabled [(ngModel)]="invoiceItem.product.price"
-             class="input input-bordered text-center font-mono w-full" />
+             class="input input-bordered text-center font-mono w-full"/>
     </div>
     <div class="form-control">
       <label class="label">
         <span class="label-text font-medium">VAT</span>
       </label>
       <input disabled [(ngModel)]="invoiceItem.product.tax"
-             class="input input-bordered text-center font-mono w-full" />
+             class="input input-bordered text-center font-mono w-full"/>
     </div>
 
   </div>
   <div class="pt-4  form-control">
     <label class="label">
-      <span class="label-text font-medium" >Description</span>
+      <span class="label-text font-medium">Description</span>
     </label>
     <input type="text" [(ngModel)]="invoiceItem.description"
-           class="input input-bordered w-full" />
+           class="input input-bordered w-full"/>
   </div>
 
   <div class="pt-4 grid grid-cols-2 gap-5">
@@ -40,28 +40,30 @@
       <label class="label">
         <span class="label-text font-medium">Quantity</span>
       </label>
-      <input type="number" placeholder="21" min="1" title="Quantity" [(ngModel)]="invoiceItem.quantity" (change)="quantityChange()"
-             class="input input-bordered text-center font-mono w-full" />
+      <input type="number" placeholder="21" min="1" title="Quantity" [(ngModel)]="invoiceItem.quantity"
+             (change)="quantityChange()"
+             class="input input-bordered text-center font-mono w-full"/>
     </div>
     <div class="form-control">
       <label class="label">
         <span class="label-text font-medium">Discount (%)</span>
       </label>
-      <input placeholder="21" type="number" [(ngModel)]="invoiceItem.discount" (change)="quantityChange()" min="0" max="100"
-             title="Price" class="input input-bordered text-center font-mono w-full" />
+      <input placeholder="21" type="number" [(ngModel)]="invoiceItem.discount" (change)="quantityChange()" min="0"
+             max="100"
+             title="Price" class="input input-bordered text-center font-mono w-full"/>
     </div>
   </div>
 
   <div class=" mt-4  grid grid-cols-2 gap-5 bg-base-200">
     <div class="form-control">
       <label class="label">
-        <span class="label-text font-bold" >Total incl. VAT</span>
+        <span class="label-text font-bold">Total incl. VAT</span>
       </label>
     </div>
     <div class="form-control items-end">
       <label class="label">
-        <span class="label-text font-medium"> {{invoiceItem.total | currency:'EUR' }}</span>
-       </label>
+        <span class="label-text font-medium"> {{ invoiceItem.total | currency:'EUR' }}</span>
+      </label>
     </div>
   </div>
 

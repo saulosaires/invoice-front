@@ -1,6 +1,6 @@
 export class Page<Type> {
 
-  content?: Type[]| undefined;
+  content?: Type[] | undefined;
   pageable?: Pageable;
   last: boolean = true;
   totalPages: number = 1;

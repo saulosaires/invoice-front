@@ -6,66 +6,66 @@ import {NavigationEnd, Router, RouterModule} from "@angular/router";
 import {filter} from "rxjs";
 
 @Component({
-    selector: 'app-side-bar',
-    standalone: true,
-    imports: [
-        RouterModule,
-        MatIconModule,
-        NgForOf
-    ],
-    templateUrl: './side-bar.component.html',
-    styleUrl: './side-bar.component.scss'
+  selector: 'app-side-bar',
+  standalone: true,
+  imports: [
+    RouterModule,
+    MatIconModule,
+    NgForOf
+  ],
+  templateUrl: './side-bar.component.html',
+  styleUrl: './side-bar.component.scss'
 })
 export class SideBarComponent implements OnInit {
 
-    menu: Menu[] = []
+  menu: Menu[] = []
 
-    constructor(private router: Router) {
-    }
+  constructor(private router: Router) {
+  }
 
-    ngOnInit(): void {
+  ngOnInit(): void {
 
-        this.router.events
-            .pipe(filter(event => event instanceof NavigationEnd))
-            .subscribe(event  => {
-                this.update((event as NavigationEnd).url)
-            });
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(event => {
+        this.update((event as NavigationEnd).url)
+      });
 
 
-        this.menu = [
-            {active: "active", label: "Dashboard", icon: "home", href: "dashboard"},
-            {active: "", label: "Bill", icon: "receipt", href: "bill"},
-            {active: "", label: "Contact", icon: "groups", href: "contact"},
-            {active: "", label: "Invoice", icon: "payments", href: "invoice"},
-            {active: "", label: "Product", icon: "label", href: "product"}
-        ]
+    this.menu = [
+      {active: "active", label: "Dashboard", icon: "home", href: "dashboard"},
+      {active: "", label: "Bill", icon: "receipt", href: "bill"},
+      {active: "", label: "Contact", icon: "groups", href: "contact"},
+      {active: "", label: "Invoice", icon: "payments", href: "invoice"},
+      {active: "", label: "Product", icon: "label", href: "product"}
+    ]
 
-    }
+  }
 
-    click(i: number) {
-        this.menu.forEach(m => {
-            m.active = "";
-        });
-        this.menu[i].active = "active";
-    }
+  click(i: number) {
+    this.menu.forEach(m => {
+      m.active = "";
+    });
+    this.menu[i].active = "active";
+  }
 
-    update(url: string) {
+  update(url: string) {
 
-        this.menu = [
-            {active: this.isActive(url, "dashboard"), label: "Dashboard", icon: "home", href: "dashboard"},
-            {active: this.isActive(url, "bill"), label: "Bill", icon: "receipt", href: "bill"},
-            {active: this.isActive(url, "contact"), label: "Contact", icon: "groups", href: "contact"},
-            {active: this.isActive(url, "invoice"), label: "Invoice", icon: "payments", href: "invoice"},
-            {active: this.isActive(url, "product"), label: "Product", icon: "label", href: "product"}
-        ]
+    this.menu = [
+      {active: this.isActive(url, "dashboard"), label: "Dashboard", icon: "home", href: "dashboard"},
+      {active: this.isActive(url, "bill"), label: "Bill", icon: "receipt", href: "bill"},
+      {active: this.isActive(url, "contact"), label: "Contact", icon: "groups", href: "contact"},
+      {active: this.isActive(url, "invoice"), label: "Invoice", icon: "payments", href: "invoice"},
+      {active: this.isActive(url, "product"), label: "Product", icon: "label", href: "product"}
+    ]
 
-    }
+  }
 
-    isActive(url: string, menu: string) {
+  isActive(url: string, menu: string) {
 
-        if(url=='/'&& menu=='dashboard')
-            return "active";
+    if (url == '/' && menu == 'dashboard')
+      return "active";
 
-        return url.includes(menu) ? "active" : ""
-    }
+    return url.includes(menu) ? "active" : ""
+  }
 }

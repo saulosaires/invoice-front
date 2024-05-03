@@ -6,25 +6,25 @@
 
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-medium" >Name</span>
+          <span class="label-text font-medium">Name</span>
         </label>
-        <input type="text"  placeholder="Contact Name" class="input input-bordered w-full" [(ngModel)]="contact.name"/>
+        <input type="text" placeholder="Contact Name" class="input input-bordered w-full" [(ngModel)]="contact.name"/>
       </div>
       <div class="pt-4 grid grid-cols-2 gap-5">
         <div class="form-control">
           <label class="label">
             <span class="label-text font-medium">Email</span>
           </label>
-          <input type="email" placeholder="john@gmail.com" title="Contact email"  [(ngModel)]="contact.email"
-            class="input input-bordered text-center font-mono w-full" />
+          <input type="email" placeholder="john@gmail.com" title="Contact email" [(ngModel)]="contact.email"
+                 class="input input-bordered text-center font-mono w-full"/>
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text font-medium">Phone number</span>
           </label>
           <input
-            placeholder="(+32)498082345" type="text"  [(ngModel)]="contact.phone"
-            title="Phone number" class="input input-bordered text-center font-mono w-full" />
+            placeholder="(+32)498082345" type="text" [(ngModel)]="contact.phone"
+            title="Phone number" class="input input-bordered text-center font-mono w-full"/>
         </div>
       </div>
       <div class="pt-4 grid grid-cols-2 gap-5">
@@ -32,7 +32,7 @@
           <label class="label">
             <span class="label-text font-medium">Contact Person</span>
           </label>
-          <input type="email" placeholder="john Denver" title="Contact Person"  [(ngModel)]="contact.contactPerson"
+          <input type="email" placeholder="john Denver" title="Contact Person" [(ngModel)]="contact.contactPerson"
                  class="input input-bordered text-center font-mono w-full" required/>
         </div>
         <div class="form-control">
@@ -40,28 +40,28 @@
             <span class="label-text font-medium">VAT</span>
           </label>
           <input
-            placeholder="BE803573575" type="text"  [(ngModel)]="contact.vat"
-            title="VAT" class="input input-bordered text-center font-mono w-full" required />
+            placeholder="BE803573575" type="text" [(ngModel)]="contact.vat"
+            title="VAT" class="input input-bordered text-center font-mono w-full" required/>
         </div>
       </div>
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-medium" >Address</span>
+          <span class="label-text font-medium">Address</span>
         </label>
         <textarea placeholder="Address" class="textarea textarea-bordered textarea-md w-full max-w contact_address"
-                  maxlength="1000"  [(ngModel)]="contact.address"></textarea>
+                  maxlength="1000" [(ngModel)]="contact.address"></textarea>
       </div>
       <div class="pt-4 grid grid-cols-2 gap-5">
         <div class="form-control mt-4 gap-4">
           <label class="flex cursor-pointer gap-4">
-            <input type="checkbox" class="checkbox checkbox-primary checkbox-sm"  [(ngModel)]="contact.isSupplier"
+            <input type="checkbox" class="checkbox checkbox-primary checkbox-sm" [(ngModel)]="contact.isSupplier"
                    [checked]="contact.isSupplier"/>
             <span class="label-text">Supplier</span>
           </label>
         </div>
         <div class="form-control mt-4 gap-4">
           <label class="flex cursor-pointer gap-4">
-            <input type="checkbox" class="checkbox checkbox-primary checkbox-sm"  [(ngModel)]="contact.isClient"
+            <input type="checkbox" class="checkbox checkbox-primary checkbox-sm" [(ngModel)]="contact.isClient"
                    [checked]="contact.isClient"/>
             <span class="label-text">Client</span>
           </label>
@@ -69,7 +69,7 @@
       </div>
     </div>
 
-    <input type="radio" name="contact_tab" role="tab" class="tab" aria-label="Banking" />
+    <input type="radio" name="contact_tab" role="tab" class="tab" aria-label="Banking"/>
     <div role="tabpanel" class="tab-content border-base-300 rounded-box p-6">
 
       <div class="pt-0 grid grid-cols-2 gap-5">
@@ -78,14 +78,14 @@
             <span class="label-text font-bold">Bank name</span>
           </label>
           <input [(ngModel)]="contact.bankName" type="text" placeholder="Santander" title="Bank name"
-            class="input input-bordered text-center font-mono w-full" />
+                 class="input input-bordered text-center font-mono w-full"/>
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text font-bold">Account holder</span>
           </label>
           <input [(ngModel)]="contact.accountHolder" placeholder="Name of the account holder" type="text"
-            title="Account holder" class="input input-bordered text-center font-mono w-full"  />
+                 title="Account holder" class="input input-bordered text-center font-mono w-full"/>
         </div>
       </div>
       <div class="pt-4 grid grid-cols-2 gap-5">
@@ -94,15 +94,15 @@
             <span class="label-text font-bold">Account number/IBAN</span>
           </label>
           <input [(ngModel)]="contact.accountNumber"
-            type="text" placeholder="Account number/IBAN" title="Account number/IBAN"
-            class="input input-bordered text-center font-mono w-full" />
+                 type="text" placeholder="Account number/IBAN" title="Account number/IBAN"
+                 class="input input-bordered text-center font-mono w-full"/>
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text font-bold"> SWIFT/BIC Code</span>
           </label>
           <input [(ngModel)]="contact.swiftBic" placeholder=" SWIFT/BIC Code" type="text"
-            title=" SWIFT/BIC Code" class="input input-bordered text-center font-mono w-full" />
+                 title=" SWIFT/BIC Code" class="input input-bordered text-center font-mono w-full"/>
         </div>
       </div>
     </div>

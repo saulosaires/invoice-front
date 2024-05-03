@@ -33,7 +33,7 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent, data: {breadcrumb: 'dashboard'}},
-  {path: 'company', resolve: {company: companyResolver},component: CompanyComponent, data: {breadcrumb: 'company'}},
+  {path: 'company', resolve: {company: companyResolver}, component: CompanyComponent, data: {breadcrumb: 'company'}},
   {
     path: 'product', data: {breadcrumb: 'product'},
     children: [

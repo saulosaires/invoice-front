@@ -1,5 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Company} from "../../company/model/company";
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Contact} from "../../contact/model/contact";
 import {NgForOf, NgIf} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -22,18 +21,18 @@ import {BanksService} from "../../bank/service/bank.service";
   templateUrl: './invoice-client.component.html',
   styleUrl: './invoice-client.component.scss'
 })
-export class InvoiceClientComponent  implements OnInit {
+export class InvoiceClientComponent implements OnInit {
 
-  @Output()  contact= new EventEmitter<Contact>();
+  @Output() contact = new EventEmitter<Contact>();
 
-  contactId?:string;
-  contactSelect=new Contact();
+  contactId?: string;
+  contactSelect = new Contact();
   contacts: Contact[] | undefined = [];
 
-  sortDirection:string="asc";
-  page:number=0;
-  size:number=10
-  field:string='name';
+  sortDirection: string = "asc";
+  page: number = 0;
+  size: number = 10
+  field: string = 'name';
 
   constructor(private activatedRoute: ActivatedRoute,
               private countryService: CountryService,
@@ -45,20 +44,20 @@ export class InvoiceClientComponent  implements OnInit {
 
   ngOnInit(): void {
     this.getContacts();
-    }
+  }
 
   getContacts() {
-    this.contactsService.findByUser(this.page,this.size,this.field,this.sortDirection).subscribe(pageable => {
-      this.contacts=pageable.content;
+    this.contactsService.findByUser(this.page, this.size, this.field, this.sortDirection).subscribe(pageable => {
+      this.contacts = pageable.content;
     });
   }
 
   contactChange() {
 
-    if(this.contacts)
-      this.contacts.forEach(c=>{
-        if(c.id==this.contactId){
-          this.contactSelect=c;
+    if (this.contacts)
+      this.contacts.forEach(c => {
+        if (c.id == this.contactId) {
+          this.contactSelect = c;
           this.contact.emit(c);
 
         }

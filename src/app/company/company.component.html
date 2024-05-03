@@ -4,7 +4,7 @@
     <div class="card-body">
       <div class="flex justify-between gap-2">
         <h2 class="card-title grow">
-          <a >Company</a>
+          <a>Company</a>
         </h2>
         <div class="tooltip" data-tip="Save">
           <button class="btn btn-primary" (click)="saveCompany()">
@@ -14,9 +14,9 @@
       </div>
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-bold" >Name</span>
+          <span class="label-text font-bold">Name</span>
         </label>
-        <input  class="input input-bordered" [(ngModel)]="company.name"/>
+        <input class="input input-bordered" [(ngModel)]="company.name"/>
       </div>
       <div class="pt-4 grid grid-cols-2 gap-5">
         <div class="form-control">
@@ -29,7 +29,7 @@
           <label class="label">
             <span class="label-text font-bold">Phone number</span>
           </label>
-          <input class="input input-bordered text-center font-mono"  [(ngModel)]="company.phone"/>
+          <input class="input input-bordered text-center font-mono" [(ngModel)]="company.phone"/>
         </div>
       </div>
       <div class="pt-4 grid grid-cols-2 gap-5">
@@ -37,22 +37,22 @@
           <label class="label">
             <span class="label-text font-bold">Country</span>
           </label>
-          <select class="select select-bordered w-full max-w-xs"  [(ngModel)]="company.country.id">
-            <option *ngFor="let country of countries; index as i" [value]="country.id">{{country.name}}</option>
+          <select class="select select-bordered w-full max-w-xs" [(ngModel)]="company.country.id">
+            <option *ngFor="let country of countries; index as i" [value]="country.id">{{ country.name }}</option>
           </select>
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text font-bold">VAT</span>
           </label>
-          <input class="input input-bordered text-center font-mono"  [(ngModel)]="company.vat"/>
+          <input class="input input-bordered text-center font-mono" [(ngModel)]="company.vat"/>
         </div>
       </div>
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-bold" >Address</span>
+          <span class="label-text font-bold">Address</span>
         </label>
-        <textarea  class="textarea textarea-bordered textarea-md w-full max-w contact_address"
+        <textarea class="textarea textarea-bordered textarea-md w-full max-w contact_address"
                   maxlength="1000" [(ngModel)]="company.address"></textarea>
       </div>
 

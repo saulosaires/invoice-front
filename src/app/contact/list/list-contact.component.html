@@ -15,7 +15,7 @@
       <table class="table table-zebra">
         <thead>
         <tr>
-          <th sorted order="{{sortDirection}}"   (click)="sort('name')">Name</th>
+          <th sorted order="{{sortDirection}}" (click)="sort('name')">Name</th>
           <th>Email</th>
           <th>Phone</th>
         </tr>
@@ -31,13 +31,13 @@
                 </div>
               </div>
               <div>
-                <div class="text-sm font-medium">{{contact.name}}</div>
-                <div class="text-xs opacity-50">{{contact.address}}</div>
+                <div class="text-sm font-medium">{{ contact.name }}</div>
+                <div class="text-xs opacity-50">{{ contact.address }}</div>
               </div>
             </div>
           </td>
-          <td>{{contact.email}}</td>
-          <td>{{contact.phone}}</td>
+          <td>{{ contact.email }}</td>
+          <td>{{ contact.phone }}</td>
         </tr>
 
         </tbody>

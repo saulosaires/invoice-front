@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ViewContactComponent } from './view-contact.component';
+import {ViewContactComponent} from './view-contact.component';
 
 describe('ViewContactComponent', () => {
   let component: ViewContactComponent;
@@ -10,8 +10,8 @@ describe('ViewContactComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ViewContactComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(ViewContactComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

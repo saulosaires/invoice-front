@@ -4,7 +4,7 @@
     <div class="grow">
       <h1 class="font-light lg:text-2xl">Product Details</h1>
       <div class="flex gap-4">
-        <button class="btn btn-primary font-medium"  (click)="editProduct();" >Edit</button>
+        <button class="btn btn-primary font-medium" (click)="editProduct();">Edit</button>
         <button class="btn btn-neutral font-medium" onclick="delete_modal.showModal()">Delete</button>
       </div>
     </div>
@@ -14,16 +14,16 @@
     <div class="card-body">
       <div class="flex justify-between gap-2">
         <h2 class="card-title grow">
-          <a >Product</a>
+          <a>Product</a>
         </h2>
       </div>
 
       <div class=" form-control">
         <label class="label">
-          <span class="label-text font-medium" >Product</span>
+          <span class="label-text font-medium">Product</span>
         </label>
         <input type="text" disabled [(ngModel)]="product.name"
-               class="input input-bordered input-primary w-full" />
+               class="input input-bordered input-primary w-full"/>
       </div>
       <div class="pt-4 grid grid-cols-3 gap-5">
         <div class="form-control">
@@ -31,26 +31,26 @@
             <span class="label-text font-medium">Quantity</span>
           </label>
           <input type="number" disabled [(ngModel)]="product.quantity"
-                 class="input input-bordered text-center font-mono  input-primary w-full" />
+                 class="input input-bordered text-center font-mono  input-primary w-full"/>
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text font-medium">Price</span>
           </label>
           <input type="text" disabled [(ngModel)]="product.price"
-            title="Price" class="input input-bordered text-center font-mono  input-primary w-full" />
+                 title="Price" class="input input-bordered text-center font-mono  input-primary w-full"/>
         </div>
         <div class="form-control">
           <label class="label">
             <span class="label-text font-medium">Tax</span>
           </label>
           <input type="number" disabled [(ngModel)]="product.tax"
-            title="Tax" class="input input-bordered text-center font-mono  input-primary w-full" />
+                 title="Tax" class="input input-bordered text-center font-mono  input-primary w-full"/>
         </div>
       </div>
       <div class="pt-4 form-control">
         <label class="label">
-          <span class="label-text font-medium" >Description</span>
+          <span class="label-text font-medium">Description</span>
         </label>
         <textarea disabled [(ngModel)]="product.description"
                   class="textarea textarea-bordered textarea-md max-w textarea-primary w-full"
@@ -73,7 +73,7 @@
 
 <dialog id="delete_modal" class="modal">
   <div class="modal-box">
-    <h3 class="font-bold text-lg">{{product.name}}</h3>
+    <h3 class="font-bold text-lg">{{ product.name }}</h3>
     <p class="py-4">Delete this Product ?</p>
 
     <form method="dialog" class="modal-backdrop">

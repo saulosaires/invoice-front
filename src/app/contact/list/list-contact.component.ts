@@ -26,11 +26,12 @@ import {SortedDirective} from "../../components/sorted.directive";
 export class ListContactComponent implements OnInit {
 
   contact_dialog: HTMLFormElement | undefined;
-  contacts: Contact[] | undefined= [];
-  sortDirection:string="asc";
-  page:number=0;
-  size:number=10
-  field:string='name';
+  contacts: Contact[] | undefined = [];
+  sortDirection: string = "asc";
+  page: number = 0;
+  size: number = 10
+  field: string = 'name';
+
   constructor(private service: ContactsService) {
   }
 
@@ -40,8 +41,8 @@ export class ListContactComponent implements OnInit {
   }
 
   getContacts() {
-    this.service.findByUser(this.page,this.size,this.field,this.sortDirection).subscribe(pageable => {
-       this.contacts=pageable.content;
+    this.service.findByUser(this.page, this.size, this.field, this.sortDirection).subscribe(pageable => {
+      this.contacts = pageable.content;
     });
   }
 
@@ -56,9 +57,9 @@ export class ListContactComponent implements OnInit {
   }
 
   sort(name: string) {
-      this.sortDirection=this.sortDirection=="desc" ? 'asc' : 'desc';
-      this.field=name;
+    this.sortDirection = this.sortDirection == "desc" ? 'asc' : 'desc';
+    this.field = name;
 
-      this.getContacts();
+    this.getContacts();
   }
 }

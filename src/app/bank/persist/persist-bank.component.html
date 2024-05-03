@@ -12,7 +12,7 @@
         <span class="label-text font-bold">Name</span>
       </label>
       <input type="text" placeholder="Santander" title="Name" [(ngModel)]="bank.name"
-             class="input input-bordered text-center font-mono  input-primary w-full" />
+             class="input input-bordered text-center font-mono  input-primary w-full"/>
     </div>
     <div class="form-control">
       <label class="label">
@@ -20,14 +20,14 @@
       </label>
       <input
         placeholder="BE77 3771 1398 5578" type="text" [(ngModel)]="bank.accountNumber"
-        title="IBAN" class="input input-bordered text-center font-mono  input-primary w-full" />
+        title="IBAN" class="input input-bordered text-center font-mono  input-primary w-full"/>
     </div>
     <div class="form-control">
       <label class="label">
         <span class="label-text font-bold">Currency</span>
       </label>
-      <select class="select select-bordered w-full max-w-xs"  [(ngModel)]="bank.currency.id">
-        <option *ngFor="let currency of currencies; index as i" [value]="currency.id">{{currency.name}}</option>
+      <select class="select select-bordered w-full max-w-xs" [(ngModel)]="bank.currency.id">
+        <option *ngFor="let currency of currencies; index as i" [value]="currency.id">{{ currency.name }}</option>
       </select>
     </div>
   </div>
@@ -38,14 +38,14 @@
         <span class="label-text font-bold">SWIFT/BIC</span>
       </label>
       <input type="text" placeholder="SWIFT/BIC" title="Name" [(ngModel)]="bank.swiftBic"
-             class="input input-bordered text-center font-mono  input-primary w-full" />
+             class="input input-bordered text-center font-mono  input-primary w-full"/>
     </div>
     <div class="form-control">
       <label class="label">
         <span class="label-text font-bold">Type</span>
       </label>
-      <select class="select select-bordered w-full max-w-xs"  [(ngModel)]="bank.type">
-        <option *ngFor="let type of types; index as i" [value]="type">{{type}}</option>
+      <select class="select select-bordered w-full max-w-xs" [(ngModel)]="bank.type">
+        <option *ngFor="let type of types; index as i" [value]="type">{{ type }}</option>
       </select>
     </div>
     <div class="form-control">
@@ -54,7 +54,7 @@
       </label>
       <input
         placeholder="0" type="text" [(ngModel)]="bank.balance"
-        title="Balance" class="input input-bordered text-center font-mono  input-primary w-full" />
+        title="Balance" class="input input-bordered text-center font-mono  input-primary w-full"/>
     </div>
   </div>
 

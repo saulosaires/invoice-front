@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,
               private socialAuthService: SocialAuthService,
-              private storageService:StorageService,
+              private storageService: StorageService,
               private authService: AuthService) {
   }
 
@@ -38,9 +38,9 @@ export class LoginComponent implements OnInit {
       this.authService.login(auth).subscribe(response => {
 
         if (response.token) {
-          let user :User=jwtDecode(response.token);
-          this.storageService.saveData("user",JSON.stringify(user))
-          this.storageService.saveData("token",response.token)
+          let user: User = jwtDecode(response.token);
+          this.storageService.saveData("user", JSON.stringify(user))
+          this.storageService.saveData("token", response.token)
           GlobalConstants.loggedIn = true;
           this.router.navigate(['/']);
         }

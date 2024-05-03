@@ -1,6 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {Payment} from "../invoice-payment/model/payment";
 
 @Component({
   selector: 'app-invoice-extra',
@@ -14,9 +13,9 @@ import {Payment} from "../invoice-payment/model/payment";
 })
 export class InvoiceExtraComponent implements OnInit {
 
-  @Output() extraNote= new EventEmitter<string>();
+  @Output() extraNote = new EventEmitter<string>();
 
-  note:string="";
+  note: string = "";
 
   ngOnInit(): void {
   }

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NoDataComponent } from './no-data.component';
+import {NoDataComponent} from './no-data.component';
 
 describe('NoDataComponent', () => {
   let component: NoDataComponent;
@@ -10,8 +10,8 @@ describe('NoDataComponent', () => {
     await TestBed.configureTestingModule({
       imports: [NoDataComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(NoDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PersistContactComponent } from './persist-contact.component';
+import {PersistContactComponent} from './persist-contact.component';
 
 describe('PersistContactComponent', () => {
   let component: PersistContactComponent;
@@ -10,8 +10,8 @@ describe('PersistContactComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PersistContactComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(PersistContactComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

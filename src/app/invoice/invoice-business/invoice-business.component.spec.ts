@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { InvoiceBusinessComponent } from './invoice-business.component';
+import {InvoiceBusinessComponent} from './invoice-business.component';
 
 describe('InvoiceBusinessComponent', () => {
   let component: InvoiceBusinessComponent;
@@ -10,8 +10,8 @@ describe('InvoiceBusinessComponent', () => {
     await TestBed.configureTestingModule({
       imports: [InvoiceBusinessComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(InvoiceBusinessComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

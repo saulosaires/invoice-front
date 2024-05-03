@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BreadcrumbsComponent } from './breadcrumbs.component';
+import {BreadcrumbsComponent} from './breadcrumbs.component';
 
 describe('BreadcrumbsComponent', () => {
   let component: BreadcrumbsComponent;
@@ -10,8 +10,8 @@ describe('BreadcrumbsComponent', () => {
     await TestBed.configureTestingModule({
       imports: [BreadcrumbsComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(BreadcrumbsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

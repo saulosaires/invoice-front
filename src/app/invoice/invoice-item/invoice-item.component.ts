@@ -5,7 +5,6 @@ import {MatIconModule} from "@angular/material/icon";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PersistProductComponent} from "../../product/persist/persist-product.component";
 import {InvoiceAddItemComponent} from "../invoice-add-item/invoice-add-item.component";
-import {ProductsService} from "../../product/service/product.service";
 
 @Component({
   selector: 'app-invoice-item',
@@ -24,13 +23,13 @@ import {ProductsService} from "../../product/service/product.service";
   templateUrl: './invoice-item.component.html',
   styleUrl: './invoice-item.component.scss'
 })
-export class InvoiceItemComponent implements OnInit,AfterViewInit {
+export class InvoiceItemComponent implements OnInit, AfterViewInit {
 
   invoiceItems: InvoiceItem[] = [];
-  itemSelected: InvoiceItem= new InvoiceItem();
+  itemSelected: InvoiceItem = new InvoiceItem();
 
   @ViewChild('add_item') addItem!: ElementRef<HTMLDialogElement>;
-  @ViewChild('invoiceAddItem') invoiceAddItem! :InvoiceAddItemComponent
+  @ViewChild('invoiceAddItem') invoiceAddItem!: InvoiceAddItemComponent
 
   constructor() {
 
@@ -41,15 +40,15 @@ export class InvoiceItemComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-  console.log(this.invoiceAddItem);
+    console.log(this.invoiceAddItem);
   }
 
 
   itemChanged(item: InvoiceItem) {
     console.log(item);
-    if(item.index && item.index>=0){
-      this.invoiceItems[item.index-1]=item;
-    }else{
+    if (item.index && item.index >= 0) {
+      this.invoiceItems[item.index - 1] = item;
+    } else {
       this.invoiceItems.push(item);
     }
     console.log(this.invoiceItems);
@@ -58,8 +57,8 @@ export class InvoiceItemComponent implements OnInit,AfterViewInit {
 
   itemSelect(i: number) {
     this.itemSelected = this.invoiceItems[i];
-    this.itemSelected.index=i+1;
-    this.invoiceAddItem.invoiceItem =   this.itemSelected;
+    this.itemSelected.index = i + 1;
+    this.invoiceAddItem.invoiceItem = this.itemSelected;
     this.openModal();
   }
 
@@ -76,7 +75,6 @@ export class InvoiceItemComponent implements OnInit,AfterViewInit {
     this.addItem.nativeElement.showModal();
     this.addItem.nativeElement.classList.add('opened');
   }
-
 
 
 }
