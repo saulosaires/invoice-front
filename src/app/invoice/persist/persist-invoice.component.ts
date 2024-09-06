@@ -13,7 +13,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {ContactsService} from "../../contact/service/contact.service";
 import {Contact} from "../../contact/model/contact";
-import {NgForOf, NgIf} from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {Bank} from "../../bank/model/bank";
 import {SortedDirective} from "../../components/sorted.directive";
 import {Invoice} from "../model/invoice";
@@ -24,6 +24,9 @@ import {InvoiceItemComponent} from "../invoice-item/invoice-item.component";
 import {Payment} from "../invoice-payment/model/payment";
 import {PersistProductComponent} from "../../product/persist/persist-product.component";
 import {InvoiceExtraComponent} from "../invoice-extra/invoice-extra.component";
+import {MatIconModule} from "@angular/material/icon";
+import {InvoiceStyleComponent} from "../invoice-style/invoice-style.component";
+import {InvoiceItem} from "../invoice-item/model/invoice.item";
 
 @Component({
   selector: 'app-persist-invoice',
@@ -31,28 +34,26 @@ import {InvoiceExtraComponent} from "../invoice-extra/invoice-extra.component";
 
   imports: [
     ReactiveFormsModule,
-    MatFormFieldModule, MatNativeDateModule, MatInputModule, MatDatepickerModule, NgForOf, FormsModule, NgIf, SortedDirective, InvoiceBusinessComponent, InvoiceClientComponent, InvoicePaymentComponent, InvoiceItemComponent, PersistProductComponent, InvoiceExtraComponent,
+    MatFormFieldModule, MatNativeDateModule, MatInputModule, MatDatepickerModule, NgForOf, FormsModule, NgIf, SortedDirective, InvoiceBusinessComponent, InvoiceClientComponent, InvoicePaymentComponent, InvoiceItemComponent, PersistProductComponent, InvoiceExtraComponent, MatIconModule, NgClass, InvoiceStyleComponent,
   ],
   templateUrl: './persist-invoice.component.html',
   styleUrl: './persist-invoice.component.scss'
 })
 export class PersistInvoiceComponent implements OnInit {
 
-  sortDirection: string = "asc";
-  page: number = 0;
-  size: number = 10
-  field: string = 'name';
-
-  contacts: Contact[] | undefined = [];
-  banks: Bank[] = [];
-
-  company: Company = new Company();
   contact: Contact = new Contact();
   bank: Bank = new Bank();
-
   invoice: Invoice = new Invoice();
-  abc: any;
 
+
+  stepDetails: boolean = true;
+  stepStyle: boolean = true;
+  stepExport: boolean = false;
+  currentStep: number = 1;
+  steps: any;
+
+  showStyleSection: Boolean = false;
+  showDataSection: Boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private countryService: CountryService,
@@ -64,21 +65,86 @@ export class PersistInvoiceComponent implements OnInit {
 
   ngOnInit(): void {
     this.companyService.findByUser().subscribe(company => {
-      this.company = company;
+      console.log(company);
+      this.invoice.company = company;
     });
+
+
+    this.steps = [
+      {name: "Details", selected: true},
+      {name: "Style", selected: false},
+      {name: "Export", selected: false}
+    ];
+
+    this.showSections();
   }
 
-  contactSelected($event: Contact) {
-    console.log($event);
+  contactSelected(contact: Contact) {
+    this.invoice.contact = contact;
+  }
+
+  itemChange(items: InvoiceItem[]){
+    this.invoice.invoiceItem=items;
   }
 
   paymentChange(payment: Payment) {
-    console.log(payment);
+    this.invoice.bank = payment.bank;
+    this.invoice.invoiceNumber = payment.invoiceNumber;
+    this.invoice.date = payment.date;
+    this.invoice.dueDate = payment.dueDate;
   }
 
-  extraNoteChange(extraNote: string) {
-    console.log(extraNote);
+  extraNoteChange(comment: string) {
+    this.invoice.comment = comment;
   }
 
+  nextStep() {
+
+    let index = this.getNextStep();
+
+    if (index < 0) return;
+
+    this.steps[index].selected = true;
+
+    this.showSections();
+  }
+
+  previousStep() {
+
+    let index = this.getNextStep();
+
+    if (index == 1) return;
+
+    if (index < 0) {
+      this.steps[this.steps.length - 1].selected = false;
+      return
+    }
+
+    this.steps[index - 1].selected = false;
+
+    this.showSections();
+  }
+
+  getNextStep() {
+    return this.steps.findIndex((step: { selected: boolean; }) => !step.selected);
+  }
+
+  isStepSelected() {
+
+    let lastStep: any;
+
+    for (const step of this.steps) {
+      if (step.selected) {
+        lastStep = step;
+      }
+    }
+
+    return lastStep;
+  }
+
+  showSections() {
+    this.showDataSection = this.isStepSelected().name == "Details";
+    this.showStyleSection = this.isStepSelected().name == "Style";
+  }
 
 }

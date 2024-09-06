@@ -57,12 +57,51 @@
   <div class=" mt-4  grid grid-cols-2 gap-5 bg-base-200">
     <div class="form-control">
       <label class="label">
-        <span class="label-text font-bold">Total incl. VAT</span>
+        <span class="label-text font-bold">Subtotal excluding VAT</span>
       </label>
     </div>
     <div class="form-control items-end">
       <label class="label">
         <span class="label-text font-medium"> {{ invoiceItem.total | currency:'EUR' }}</span>
+      </label>
+    </div>
+  </div>
+
+  <div class=" mt-2  grid grid-cols-2 gap-5 bg-base-200">
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text font-bold"> VAT</span>
+      </label>
+    </div>
+    <div class="form-control items-end">
+      <label class="label">
+        <span class="label-text font-medium"> {{ invoiceItem.vat | currency:'EUR' }}</span>
+      </label>
+    </div>
+  </div>
+
+  <div class=" mt-2  grid grid-cols-2 gap-5 bg-base-200">
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text font-bold"> Discount</span>
+      </label>
+    </div>
+    <div class="form-control items-end">
+      <label class="label">
+        <span class="label-text font-medium"> {{ invoiceItem.discountAmount | currency:'EUR' }}</span>
+      </label>
+    </div>
+  </div>
+
+  <div class=" mt-2  grid grid-cols-2 gap-5 bg-base-200">
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text font-bold"> Total</span>
+      </label>
+    </div>
+    <div class="form-control items-end">
+      <label class="label">
+        <span class="label-text font-medium"> {{ invoiceItem.amountDue | currency:'EUR' }}</span>
       </label>
     </div>
   </div>

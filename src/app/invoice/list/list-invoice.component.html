@@ -1,6 +1,50 @@
-<p>list-invoice works!</p>
+<div class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
+  <div class="card-body grow-0">
+    <div class="flex justify-between gap-2">
+      <h2 class="card-title grow">
+        <a class="link-hover link">Contacts</a>
+      </h2>
+      <button class="btn btn-primary font-medium" routerLink="create">
+        <mat-icon aria-hidden="false" aria-label="person icon" class="h-5 w-5" fontIcon="add_circle"/>
+        New invoice
+      </button>
+    </div>
 
-<button class="btn btn-primary font-medium" routerLink="create">
-  <mat-icon aria-hidden="false" aria-label="person icon" class="h-5 w-5" fontIcon="add_circle"/>
-  New invoice
-</button>
+    <div class="overflow-x-auto">
+      <table class="table table-zebra">
+        <thead>
+        <tr>
+          <th sorted order="{{sortDirection}}" (click)="sort('name')">Client</th>
+          <th>Number</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Ammount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let invoice of invoices; index as i" [routerLink]="[invoice.id]" class="hover cursor-pointer">
+          <td>
+            <div class="flex items-center gap-4">
+              <div class="avatar">
+                <div class="mask mask-squircle h-10 w-10">
+                  <img alt="Avatar Tailwind CSS Component"
+                       src="https://picsum.photos/80/80?1"/>
+                </div>
+              </div>
+              <div>
+                <div class="text-sm font-medium">{{ invoice.contact.contactPerson }}</div>
+              </div>
+            </div>
+          </td>
+          <td>{{ invoice.invoiceNumber }}</td>
+          <td>{{ invoice.dateFormatted }}</td>
+          <td>{{ invoice.status }}</td>
+          <td>{{ invoice.amount | currency:invoice.bank.currency.symbol }}</td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

@@ -1,3 +1,5 @@
+import {Country} from "../../country/country";
+
 export class Contact {
 
   id?: string;
@@ -5,6 +7,7 @@ export class Contact {
   email?: string;
   phone?: string;
   address?: string;
+  country: Country = new Country();
   contactPerson?: string;
   vat?: string;
   isClient: boolean = false;

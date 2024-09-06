@@ -1,10 +1,11 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {InvoiceItem} from "./model/invoice.item";
 import {AsyncPipe, CurrencyPipe, NgForOf, NgIf} from "@angular/common";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PersistProductComponent} from "../../product/persist/persist-product.component";
 import {InvoiceAddItemComponent} from "../invoice-add-item/invoice-add-item.component";
+import {Payment} from "../invoice-payment/model/payment";
 
 @Component({
   selector: 'app-invoice-item',
@@ -28,6 +29,9 @@ export class InvoiceItemComponent implements OnInit, AfterViewInit {
   invoiceItems: InvoiceItem[] = [];
   itemSelected: InvoiceItem = new InvoiceItem();
 
+  @Output() items = new EventEmitter<InvoiceItem[]>();
+
+
   @ViewChild('add_item') addItem!: ElementRef<HTMLDialogElement>;
   @ViewChild('invoiceAddItem') invoiceAddItem!: InvoiceAddItemComponent
 
@@ -40,7 +44,6 @@ export class InvoiceItemComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.invoiceAddItem);
   }
 
 
@@ -52,6 +55,7 @@ export class InvoiceItemComponent implements OnInit, AfterViewInit {
       this.invoiceItems.push(item);
     }
     console.log(this.invoiceItems);
+    this.items.emit(this.invoiceItems);
     this.closeModal();
   }
 

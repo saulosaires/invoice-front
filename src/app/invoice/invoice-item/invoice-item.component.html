@@ -37,7 +37,7 @@
           <td>{{ item.product.tax }}%</td>
           <td>{{ item.quantity }}</td>
           <td>{{ item.discount }}%</td>
-          <td>{{ item.total | currency:'EUR' }}</td>
+          <td>{{ item.amountDue | currency:'EUR' }}</td>
         </tr>
         </tbody>
       </table>

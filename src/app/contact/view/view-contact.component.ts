@@ -49,7 +49,7 @@ export class ViewContactComponent implements OnInit {
 
   delete() {
 
-    if (this.contact && this.contact.id)
+    if (this.contact?.id)
       this.contactsService.delete(this.contact.id).subscribe(any => {
         this.router.navigate(['/contact']);
       })

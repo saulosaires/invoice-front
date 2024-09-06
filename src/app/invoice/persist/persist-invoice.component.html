@@ -1,32 +1,46 @@
 <div class="w-full mb-7">
   <ul class="steps w-full">
-    <li class="step step-primary">Details</li>
-    <li class="step">Style</li>
-    <li class="step">Export</li>
+    <li class="step" *ngFor="let step of steps; index as i" [ngClass]="{'step-primary':  step.selected}" >{{ step.name }}</li>
   </ul>
 </div>
+<div class="grid grid-cols-12 gap-y-3 lg:gap-x-3">
 
-<div class="grid grid-cols-12 gap-y-6 lg:gap-x-6">
+  <div class="col-span-12 overflow-hidden shadow-sm xl:col-span-12">
 
-  <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-6">
-    <app-invoice-business [company]="company"></app-invoice-business>
+    <div class="flex items-center gap-y-3 lg:gap-x-3 justify-end">
+        <button class="btn btn-primary font-medium" (click)="previousStep()">
+          <mat-icon aria-hidden="false" aria-label="person icon" class="h-5 w-5" fontIcon="chevron_left"/>
+          Previous
+        </button>
+        <button class="btn btn-primary font-medium" (click)="nextStep()">
+          Next
+          <mat-icon aria-hidden="false" aria-label="person icon" class="h-5 w-5" fontIcon="chevron_right"/>
+        </button>
+    </div>
+
+  </div>
+
+  <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-6" *ngIf="showDataSection">
+    <app-invoice-business [company]="invoice.company"></app-invoice-business>
   </section>
-  <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-6">
+  <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-6" *ngIf="showDataSection">
     <app-invoice-client (contact)="contactSelected($event)"
                         class="col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-6"></app-invoice-client>
   </section>
-
-  <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
-    <app-invoice-item></app-invoice-item>
+  <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12" *ngIf="showDataSection">
+    <app-invoice-item (items)="itemChange($event)"></app-invoice-item>
   </section>
 
-  <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
+  <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12" *ngIf="showDataSection">
     <app-invoice-payment (payment)="paymentChange($event)"></app-invoice-payment>
   </section>
 
-  <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12">
+  <section class="card col-span-12 overflow-hidden bg-base-100 shadow-sm xl:col-span-12" *ngIf="showDataSection">
     <app-invoice-extra (extraNote)="extraNoteChange($event)"></app-invoice-extra>
   </section>
 
+  <section class="card col-span-12 overflow-hidden  shadow-sm xl:col-span-12" *ngIf="showStyleSection">
+    <app-invoice-style [invoice]="invoice"></app-invoice-style>
+  </section>
 </div>
 

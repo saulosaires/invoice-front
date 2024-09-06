@@ -54,8 +54,10 @@ export class InvoiceAddItemComponent implements OnInit {
 
     if (this.invoiceItem.quantity > 0) {
       this.invoiceItem.total = (this.invoiceItem.product.price * this.invoiceItem.quantity);
-      this.invoiceItem.total += ((this.invoiceItem.total * this.invoiceItem.product.tax) / 100);
-      this.invoiceItem.total -= ((this.invoiceItem.product.price * this.invoiceItem.discount) / 100);
+      this.invoiceItem.discountAmount = this.invoiceItem.total * ( this.invoiceItem.discount / 100);
+      this.invoiceItem.vat = (this.invoiceItem.total - this.invoiceItem.discountAmount ) * ( this.invoiceItem.product.tax / 100);
+
+      this.invoiceItem.amountDue = (this.invoiceItem.total + this.invoiceItem.vat - this.invoiceItem.discountAmount);
     }
 
   }

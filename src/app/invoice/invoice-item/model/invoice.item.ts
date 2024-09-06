@@ -7,6 +7,10 @@ export class InvoiceItem {
   description?: string;
   quantity: number = 0;
   discount: number = 0;
+
   total: number = 0;
+  vat: number = 0;
+  discountAmount: number = 0;
+  amountDue: number = 0;
 
 }
